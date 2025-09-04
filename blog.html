@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Globapay Payment Infrastructure Insights</title>
+    <meta name="description" content="Stay updated with the latest insights on payment infrastructure, cross-border commerce, fintech trends, and global market analysis from the Globapay team.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        /* Blog post image styling */
+        .post-img, .featured-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            transition: transform var(--transition-base);
+        }
+
+        .post-img:hover {
+            transform: scale(1.02);
+        }
+
+        .featured-img {
+            height: 300px;
+        }
+
+        .featured-image {
+            margin-bottom: var(--spacing-lg);
+            overflow: hidden;
+            border-radius: var(--radius-xl);
+        }
+
+        .post-image {
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="images/globapay-logo.svg" alt="Globapay" class="logo-img">
+                    </a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="features.html" class="nav-link">Features</a>
+                    <div class="nav-item">
+                        <a href="products.html" class="nav-link has-dropdown">
+                            Products
+                            <i data-lucide="chevron-down" class="dropdown-arrow"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="globagift.html">GlobaGift</a>
+                            <a href="globainvoice.html">GlobaInvoice</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="contact.html" class="btn btn-primary">Request Demo</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Insights on 
+                        <span class="hero-title-highlight">Global Payments</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Deep dives into payment infrastructure, market analysis, and the future of cross-border commerce
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Categories -->
+        <section class="blog-categories">
+            <div class="categories-container">
+                <div class="categories-nav">
+                    <button class="category-btn active" data-category="all">All Posts</button>
+                    <button class="category-btn" data-category="infrastructure">Infrastructure</button>
+                    <button class="category-btn" data-category="markets">Global Markets</button>
+                    <button class="category-btn" data-category="compliance">Compliance</button>
+                    <button class="category-btn" data-category="technology">Technology</button>
+                    <button class="category-btn" data-category="insights">Industry Insights</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Post -->
+        <section class="featured-post">
+            <div class="featured-container">
+                <article class="featured-article">
+                    <div class="featured-image">
+                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&q=80" alt="Web3 blockchain network and cross-border payment infrastructure" class="featured-img">
+                    </div>
+                    <div class="featured-content">
+                        <div class="post-meta">
+                            <span class="post-category">Infrastructure</span>
+                            <span class="post-date">December 15, 2024</span>
+                            <span class="post-read-time">8 min read</span>
+                        </div>
+                        <h2 class="featured-title">The Future of Cross-Border Payments: Why Web3 Rails Matter</h2>
+                        <p class="featured-excerpt">
+                            Traditional cross-border payment systems are slow, expensive, and opaque. We explore how Web3 infrastructure is revolutionizing international settlements, reducing costs by 70% and settlement times from days to minutes.
+                        </p>
+                        <div class="post-author">
+                            <div class="author-avatar">👤</div>
+                            <div class="author-info">
+                                <h4>Sarah Chen</h4>
+                                <p>CEO & Co-founder</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary">Read Full Article</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Blog Posts Grid -->
+        <section class="blog-posts">
+            <div class="posts-container">
+                <div class="posts-grid">
+                    <!-- Post 1 -->
+                    <article class="blog-post" data-category="markets">
+                        <div class="post-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80" alt="Data analytics and emerging markets visualization" class="post-img">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-category">Global Markets</span>
+                                <span class="post-date">December 10, 2024</span>
+                            </div>
+                            <h3 class="post-title">Payment Preferences in Emerging Markets: A 2024 Analysis</h3>
+                            <p class="post-excerpt">
+                                Deep dive into payment behavior across Africa, LATAM, and Southeast Asia. How mobile money, digital wallets, and alternative payment methods are reshaping commerce.
+                            </p>
+                            <div class="post-author">
+                                <div class="author-avatar">👤</div>
+                                <div class="author-info">
+                                    <h5>Marcus Rodriguez</h5>
+                                    <p>CTO</p>
+                                </div>
+                            </div>
+                            <div class="post-stats">
+                                <span class="read-time">6 min read</span>
+                                <span class="post-views">2.3k views</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 2 -->
+                    <article class="blog-post" data-category="compliance">
+                        <div class="post-image">
+                            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&q=80" alt="Digital security and compliance technology" class="post-img">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-category">Compliance</span>
+                                <span class="post-date">December 5, 2024</span>
+                            </div>
+                            <h3 class="post-title">KYB in the Digital Age: Beyond Traditional Due Diligence</h3>
+                            <p class="post-excerpt">
+                                How modern KYB processes adapt to digital-first businesses, API-driven verification, and real-time compliance monitoring across global jurisdictions.
+                            </p>
+                            <div class="post-author">
+                                <div class="author-avatar">👤</div>
+                                <div class="author-info">
+                                    <h5>Amara Okafor</h5>
+                                    <p>Chief Compliance Officer</p>
+                                </div>
+                            </div>
+                            <div class="post-stats">
+                                <span class="read-time">10 min read</span>
+                                <span class="post-views">1.8k views</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 3 -->
+                    <article class="blog-post" data-category="technology">
+                        <div class="post-image">
+                            <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=400&q=80" alt="High-tech server infrastructure and uptime monitoring" class="post-img">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-category">Technology</span>
+                                <span class="post-date">November 28, 2024</span>
+                            </div>
+                            <h3 class="post-title">Building Resilient Payment Infrastructure: Lessons from 99.9% Uptime</h3>
+                            <p class="post-excerpt">
+                                Technical insights into achieving enterprise-grade reliability in payment systems. Architecture patterns, monitoring strategies, and incident response playbooks.
+                            </p>
+                            <div class="post-author">
+                                <div class="author-avatar">👤</div>
+                                <div class="author-info">
+                                    <h5>David Kim</h5>
+                                    <p>Head of Product</p>
+                                </div>
+                            </div>
+                            <div class="post-stats">
+                                <span class="read-time">12 min read</span>
+                                <span class="post-views">3.1k views</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 4 -->
+                    <article class="blog-post" data-category="insights">
+                        <div class="post-image">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&q=80" alt="Business platform economy and digital infrastructure" class="post-img">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-category">Industry Insights</span>
+                                <span class="post-date">November 20, 2024</span>
+                            </div>
+                            <h3 class="post-title">The Platform Economy's Payment Challenge: Why Infrastructure Matters</h3>
+                            <p class="post-excerpt">
+                                As platform businesses scale globally, payment infrastructure becomes the make-or-break factor. Analysis of successful platform payment strategies.
+                            </p>
+                            <div class="post-author">
+                                <div class="author-avatar">👤</div>
+                                <div class="author-info">
+                                    <h5>Lisa Zhang</h5>
+                                    <p>VP Strategy</p>
+                                </div>
+                            </div>
+                            <div class="post-stats">
+                                <span class="read-time">7 min read</span>
+                                <span class="post-views">2.7k views</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 5 -->
+                    <article class="blog-post" data-category="infrastructure">
+                        <div class="post-image">
+                            <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?w=400&q=80" alt="Payment orchestration and smart routing technology" class="post-img">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-category">Infrastructure</span>
+                                <span class="post-date">November 15, 2024</span>
+                            </div>
+                            <h3 class="post-title">Payment Orchestration 101: Smart Routing in Action</h3>
+                            <p class="post-excerpt">
+                                Understanding how intelligent payment routing optimizes success rates, reduces costs, and improves customer experience through dynamic processor selection.
+                            </p>
+                            <div class="post-author">
+                                <div class="author-avatar">👤</div>
+                                <div class="author-info">
+                                    <h5>James Wilson</h5>
+                                    <p>Principal Engineer</p>
+                                </div>
+                            </div>
+                            <div class="post-stats">
+                                <span class="read-time">5 min read</span>
+                                <span class="post-views">1.9k views</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 6 -->
+                    <article class="blog-post" data-category="markets">
+                        <div class="post-image">
+                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=80" alt="African mobile money and fintech innovation" class="post-img">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-category">Global Markets</span>
+                                <span class="post-date">November 8, 2024</span>
+                            </div>
+                            <h3 class="post-title">Africa's Fintech Revolution: Mobile Money and Beyond</h3>
+                            <p class="post-excerpt">
+                                How African markets are leapfrogging traditional banking with mobile money solutions, and what global platforms need to know to succeed in these markets.
+                            </p>
+                            <div class="post-author">
+                                <div class="author-avatar">👤</div>
+                                <div class="author-info">
+                                    <h5>Kofi Asante</h5>
+                                    <p>Regional Director, Africa</p>
+                                </div>
+                            </div>
+                            <div class="post-stats">
+                                <span class="read-time">9 min read</span>
+                                <span class="post-views">4.2k views</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Load More -->
+                <div class="load-more">
+                    <button class="btn btn-secondary btn-large">Load More Articles</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Signup -->
+        <section class="newsletter-signup">
+            <div class="newsletter-container">
+                <div class="newsletter-content">
+                    <h2>Stay Updated</h2>
+                    <p>Get the latest payment infrastructure insights and industry analysis delivered to your inbox</p>
+                    
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" class="form-input" placeholder="Enter your email address" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                        <p class="newsletter-disclaimer">
+                            Join 5,000+ payment professionals. Unsubscribe anytime.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources -->
+        <section class="blog-resources">
+            <div class="resources-container">
+                <h2 class="section-title">Additional Resources</h2>
+                
+                <div class="resources-grid">
+                    <div class="resource-item">
+                        <div class="resource-icon">📚</div>
+                        <h3>Documentation</h3>
+                        <p>Comprehensive guides for integrating Globapay's payment infrastructure</p>
+                        <a href="#" class="resource-link">View Docs →</a>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <div class="resource-icon">⚡</div>
+                        <h3>API Reference</h3>
+                        <p>Complete API documentation with code examples and testing tools</p>
+                        <a href="#" class="resource-link">Explore APIs →</a>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <div class="resource-icon">📊</div>
+                        <h3>Case Studies</h3>
+                        <p>Real-world examples of platforms scaling with Globapay infrastructure</p>
+                        <a href="#" class="resource-link">Read Cases →</a>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <div class="resource-icon">🎥</div>
+                        <h3>Webinars</h3>
+                        <p>Expert talks on payment trends, compliance, and global market insights</p>
+                        <a href="#" class="resource-link">Watch Now →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/globapay-footer-logo.svg" alt="Globapay" class="footer-logo-img">
+                    </div>
+                    <p class="footer-description">Global payment infrastructure for the next generation of platforms</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="products.html">Globapay Core</a></li>
+                        <li><a href="#">Globagift</a></li>
+                        <li><a href="#">Globainvoice</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Globapay. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        // Blog category filtering
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active button
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter posts
+                const category = this.dataset.category;
+                const posts = document.querySelectorAll('.blog-post');
+                
+                posts.forEach(post => {
+                    if (category === 'all' || post.dataset.category === category) {
+                        post.style.display = 'block';
+                        post.style.opacity = '1';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Newsletter form
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Subscribing...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for subscribing! You\'ll receive our latest insights soon.');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
+        });
+
+        // Load more functionality
+        document.querySelector('.load-more button').addEventListener('click', function() {
+            this.textContent = 'Loading...';
+            this.disabled = true;
+            
+            // Simulate loading more posts
+            setTimeout(() => {
+                alert('More articles would be loaded here in a real implementation.');
+                this.textContent = 'Load More Articles';
+                this.disabled = false;
+            }, 1000);
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globapay Features - Everything You Need to Transact Globally</title>
+    <meta name="description" content="Discover Globapay's comprehensive global payment features: business verification, payment processing, orchestration, fraud prevention, frontier markets, and instant settlements.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        /* Enhanced Hero Section */
+        .features-hero {
+            height: 78vh;
+            min-height: 780px;
+            padding: calc(80px + var(--spacing-lg)) 0 0;
+            background: 
+                linear-gradient(135deg, #0a4d3a 0%, #0d5940 15%),
+                linear-gradient(45deg, #7ED321 0%, #a8e063 30%, #7ED321 60%, #5bb31a 100%);
+            background-size: 100% 100%, 120% 120%;
+            background-position: 0% 0%, -10% -10%;
+            animation: gradientShift 8s ease-in-out infinite;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .features-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(126, 211, 33, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(168, 224, 99, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(126, 211, 33, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .features-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 1px, transparent 1px),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 1px, transparent 1px),
+                radial-gradient(circle at 40% 60%, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 100px 100px, 80px 80px, 120px 120px;
+            animation: floatPattern 20s linear infinite;
+            z-index: 1;
+        }
+
+        .features-hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            position: relative;
+            z-index: 3;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-bottom: var(--spacing-2xl);
+            font-size: var(--font-size-sm);
+            opacity: 0.8;
+            position: absolute;
+            top: var(--spacing-lg);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        .breadcrumb a:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            margin: 0 var(--spacing-sm);
+            opacity: 0.5;
+        }
+
+        .hero-main-headline {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-line {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.4;
+            font-weight: 400;
+        }
+
+        .hero-supporting-copy {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-2xl);
+            opacity: 0.85;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        /* Floating Payment Icons */
+        .floating-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-icon {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-icon i {
+            width: 32px;
+            height: 32px;
+            stroke: var(--white);
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+        }
+
+        .floating-icon:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-icon:nth-child(2) {
+            top: 25%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-icon:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .floating-icon:nth-child(4) {
+            top: 40%;
+            left: 5%;
+            animation-delay: 1s;
+        }
+
+        .floating-icon:nth-child(5) {
+            bottom: 30%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .floating-icon:nth-child(6) {
+            top: 60%;
+            right: 25%;
+            animation-delay: 5s;
+        }
+
+        /* Feature Preview Icons */
+        .feature-preview {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: nowrap;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .preview-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-lg);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all var(--transition-base);
+            cursor: pointer;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .preview-icon:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .preview-icon i {
+            width: 24px;
+            height: 24px;
+            stroke: var(--white);
+        }
+
+        .preview-icon span {
+            font-size: var(--font-size-xs);
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: var(--spacing-xl);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-sm);
+            cursor: pointer;
+            opacity: 0.8;
+            transition: all var(--transition-base);
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-lg);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .scroll-indicator:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-50%) translateY(-4px);
+        }
+
+        .scroll-indicator:active {
+            transform: translateX(-50%) translateY(-2px);
+        }
+
+        .scroll-indicator span {
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .scroll-indicator i {
+            width: 28px;
+            height: 28px;
+            stroke: var(--white);
+            animation: bounce 2s infinite;
+            transition: all var(--transition-base);
+        }
+
+        .scroll-indicator:hover i {
+            animation-duration: 1s;
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 0%, -10% -10%;
+            }
+            25% {
+                background-position: 0% 0%, 10% 10%;
+            }
+            50% {
+                background-position: 0% 0%, 20% -5%;
+            }
+            75% {
+                background-position: 0% 0%, -5% 20%;
+            }
+        }
+
+        @keyframes floatPattern {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) rotate(0deg); 
+                opacity: 0.1; 
+            }
+            50% { 
+                transform: translateY(-20px) translateX(10px) rotate(5deg); 
+                opacity: 0.2; 
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-8px);
+            }
+            60% {
+                transform: translateY(-4px);
+            }
+        }
+
+        /* Feature Section Styles */
+        .core-feature {
+            padding: var(--spacing-3xl) 0;
+            position: relative;
+        }
+
+        .core-feature:nth-child(even) {
+            background: var(--gradient-subtle);
+        }
+
+        .feature-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .feature-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-3xl);
+            align-items: center;
+        }
+
+        .feature-layout.reverse {
+            direction: rtl;
+        }
+
+        .feature-layout.reverse > * {
+            direction: ltr;
+        }
+
+        .feature-content {
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .feature-visual {
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .feature-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            background: var(--primary-green);
+            color: var(--white);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--radius-xl);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .feature-headline {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            color: var(--dark-teal);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.2;
+        }
+
+        .feature-highlights {
+            list-style: none;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .feature-highlights li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-lg);
+            line-height: 1.5;
+        }
+
+        .feature-highlights li::before {
+            content: '✓';
+            color: var(--primary-green);
+            font-weight: bold;
+            font-size: var(--font-size-xl);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .feature-stats {
+            display: flex;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            color: var(--primary-green);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: var(--font-size-sm);
+            color: var(--medium-gray);
+            margin-top: var(--spacing-xs);
+        }
+
+        /* Visual Elements */
+        .compliance-visual {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+        }
+
+        .world-map {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: var(--radius-lg);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .map-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .map-dot:nth-child(1) { top: 20%; left: 15%; }
+        .map-dot:nth-child(2) { top: 30%; left: 45%; }
+        .map-dot:nth-child(3) { top: 40%; left: 75%; }
+        .map-dot:nth-child(4) { top: 60%; left: 25%; }
+        .map-dot:nth-child(5) { top: 70%; left: 60%; }
+
+        .compliance-stats {
+            position: absolute;
+            bottom: var(--spacing-md);
+            right: var(--spacing-md);
+            background: var(--white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            font-weight: 600;
+            color: var(--primary-green);
+        }
+
+        .payment-visual {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .payment-methods-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .payment-method {
+            background: var(--light-gray);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+
+        .payment-method:hover {
+            background: var(--primary-green);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .method-icon {
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* Modern Icon Styling */
+        .feature-badge i,
+        .payment-method i,
+        .region-card i,
+        .settlement-icon i {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            fill: none;
+            transition: all var(--transition-base);
+        }
+
+        .feature-badge i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .payment-method:hover i {
+            stroke: url(#iconGradient);
+            fill: url(#iconGradient);
+        }
+
+        .large-icon {
+            width: 64px !important;
+            height: 64px !important;
+            stroke: var(--primary-green);
+            margin-bottom: var(--spacing-md);
+            transition: all var(--transition-base);
+            cursor: pointer;
+        }
+
+        .large-icon:hover {
+            stroke: url(#iconGradient);
+            fill: url(#iconGradient);
+            transform: scale(1.1);
+        }
+
+        /* Region card hover effects */
+        .region-card:hover .large-icon {
+            stroke: url(#iconGradient);
+            fill: url(#iconGradient);
+            transform: scale(1.1);
+        }
+
+        .region-card {
+            transition: all var(--transition-base);
+            cursor: pointer;
+        }
+
+        .region-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Feature badge icon hover */
+        .feature-badge:hover i {
+            stroke: var(--white);
+            filter: drop-shadow(0 0 8px rgba(126, 211, 33, 0.5));
+        }
+
+        /* Settlement icon hover */
+        .settlement-icon:hover i {
+            stroke: url(#iconGradient);
+            transform: scale(1.2);
+        }
+
+        .settlement-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .settlement-icon i {
+            width: 32px;
+            height: 32px;
+            stroke: var(--primary-green);
+        }
+
+        .orchestration-visual {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .orchestration-flow {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .flow-row {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .flow-box {
+            background: var(--light-gray);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            flex: 1;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .flow-box.active {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        .flow-arrow {
+            font-size: var(--font-size-xl);
+            color: var(--primary-green);
+        }
+
+        .fraud-visual {
+            background: 
+                linear-gradient(135deg, #0a4d3a 0%, #0d5940 15%),
+                linear-gradient(45deg, #7ED321 0%, #a8e063 30%, #7ED321 60%, #5bb31a 100%);
+            background-size: 100% 100%, 120% 120%;
+            background-position: 0% 0%, -10% -10%;
+            animation: gradientShift 8s ease-in-out infinite;
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fraud-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(126, 211, 33, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(168, 224, 99, 0.15) 0%, transparent 50%);
+            border-radius: var(--radius-xl);
+            pointer-events: none;
+        }
+
+        .ai-brain {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-lg);
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+        }
+
+        .ai-brain i {
+            width: 48px !important;
+            height: 48px !important;
+            stroke: var(--white);
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+        }
+
+        .fraud-stats {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--spacing-md);
+        }
+
+        .fraud-stat {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            flex: 1;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+            transition: all var(--transition-base);
+        }
+
+        .fraud-stat:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .frontier-visual {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .regions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .region-card {
+            background: var(--gradient-subtle);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            text-align: center;
+        }
+
+        .region-card .large-icon {
+            width: 48px !important;
+            height: 48px !important;
+            margin-bottom: var(--spacing-sm);
+            stroke: var(--dark-teal);
+        }
+
+        .settlement-visual {
+            background: var(--dark-teal);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            color: var(--white);
+            position: relative;
+        }
+
+        .settlement-comparison {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-xl);
+        }
+
+        .settlement-option {
+            text-align: center;
+            flex: 1;
+        }
+
+        .settlement-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(126, 211, 33, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+            font-size: var(--font-size-2xl);
+        }
+
+        .settlement-time {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-top: var(--spacing-sm);
+        }
+
+        .vs-divider {
+            font-size: var(--font-size-xl);
+            opacity: 0.7;
+        }
+
+        /* CTA Enhancement */
+        .features-cta {
+            background: var(--gradient-dark);
+            padding: var(--spacing-3xl) 0;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .features-cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .features-cta-title {
+            font-size: var(--font-size-4xl);
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .features-cta-subtitle {
+            font-size: var(--font-size-xl);
+            opacity: 0.9;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .features-cta-actions {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .features-hero {
+                height: 85vh;
+                min-height: 650px;
+            }
+
+            .feature-preview {
+                gap: var(--spacing-md);
+            }
+
+            .floating-icon {
+                display: none;
+            }
+
+            .feature-layout {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+                text-align: center;
+            }
+
+            .feature-layout.reverse {
+                direction: ltr;
+            }
+
+            .payment-methods-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .regions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-hero {
+                height: 90vh;
+                min-height: 700px;
+            }
+
+            .hero-main-headline {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            .hero-line {
+                font-size: clamp(1rem, 4vw, 1.25rem);
+            }
+
+            .feature-preview {
+                gap: var(--spacing-sm);
+                margin-bottom: var(--spacing-lg);
+                max-width: 100%;
+                padding: 0 var(--spacing-sm);
+            }
+
+            .preview-icon {
+                padding: var(--spacing-sm) var(--spacing-xs);
+                flex: 1;
+                min-width: 0;
+            }
+
+            .preview-icon i {
+                width: 20px;
+                height: 20px;
+            }
+
+            .preview-icon span {
+                font-size: 11px;
+                text-align: center;
+                line-height: 1.2;
+            }
+
+            .feature-headline {
+                font-size: var(--font-size-3xl);
+            }
+
+            .feature-stats {
+                flex-direction: column;
+                gap: var(--spacing-md);
+                text-align: center;
+            }
+
+            .payment-methods-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .settlement-comparison {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+
+            .features-cta-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .breadcrumb {
+                top: var(--spacing-sm);
+                font-size: var(--font-size-xs);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .features-hero {
+                height: 95vh;
+                min-height: 650px;
+            }
+
+            .feature-preview {
+                gap: var(--spacing-xs);
+                padding: 0 var(--spacing-xs);
+            }
+
+            .preview-icon {
+                padding: var(--spacing-xs);
+            }
+
+            .preview-icon i {
+                width: 16px;
+                height: 16px;
+            }
+
+            .preview-icon span {
+                font-size: 9px;
+                line-height: 1.1;
+            }
+
+            .scroll-indicator {
+                bottom: var(--spacing-sm);
+            }
+        }
+
+        /* Animation on scroll */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Pulse animation for map dots */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="images/globapay-logo.svg" alt="Globapay" class="logo-img">
+                    </a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="features.html" class="nav-link">Features</a>
+                    <a href="alt-home.html" class="nav-link">Alt Home</a>
+                    <div class="nav-item">
+                        <a href="products.html" class="nav-link has-dropdown">
+                            Products
+                            <i data-lucide="chevron-down" class="dropdown-arrow"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="globagift.html">GlobaGift</a>
+                            <a href="globainvoice.html">GlobaInvoice</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="contact.html" class="btn btn-primary">Request Demo</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SVG Definitions for Gradients -->
+    <svg width="0" height="0" style="position: absolute;">
+        <defs>
+            <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#7ED321;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#A8E063;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="features-hero">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>></span>
+                <span>Features</span>
+            </nav>
+
+            <!-- Floating Payment Icons -->
+            <div class="floating-icons">
+                <div class="floating-icon">
+                    <i data-lucide="credit-card"></i>
+                </div>
+                <div class="floating-icon">
+                    <i data-lucide="shield-check"></i>
+                </div>
+                <div class="floating-icon">
+                    <i data-lucide="globe"></i>
+                </div>
+                <div class="floating-icon">
+                    <i data-lucide="zap"></i>
+                </div>
+                <div class="floating-icon">
+                    <i data-lucide="trending-up"></i>
+                </div>
+                <div class="floating-icon">
+                    <i data-lucide="brain-circuit"></i>
+                </div>
+            </div>
+            
+            <div class="features-hero-container">
+                <h1 class="hero-main-headline">Powerful Features for Global Growth</h1>
+                <p class="hero-line">
+                    From instant merchant onboarding to real-time settlements - discover the complete toolkit that powers successful global businesses
+                </p>
+
+                <!-- Feature Preview Icons -->
+                <div class="feature-preview">
+                    <div class="preview-icon" data-scroll-target="#compliance">
+                        <i data-lucide="shield-check"></i>
+                        <span>Compliance</span>
+                    </div>
+                    <div class="preview-icon" data-scroll-target="#payments">
+                        <i data-lucide="credit-card"></i>
+                        <span>Payments</span>
+                    </div>
+                    <div class="preview-icon" data-scroll-target="#orchestration">
+                        <i data-lucide="settings"></i>
+                        <span>Orchestration</span>
+                    </div>
+                    <div class="preview-icon" data-scroll-target="#fraud">
+                        <i data-lucide="brain-circuit"></i>
+                        <span>Fraud Defense</span>
+                    </div>
+                    <div class="preview-icon" data-scroll-target="#frontier">
+                        <i data-lucide="trending-up"></i>
+                        <span>Frontier Markets</span>
+                    </div>
+                    <div class="preview-icon" data-scroll-target="#settlement">
+                        <i data-lucide="zap"></i>
+                        <span>Settlements</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Feature 1: Business Verification & Compliance -->
+        <section class="core-feature" id="compliance">
+            <div class="feature-container">
+                <div class="feature-layout">
+                    <div class="feature-content">
+                        <div class="feature-badge">
+                            <i data-lucide="shield-check"></i>
+                            Compliance & Trust
+                        </div>
+                        <h2 class="feature-headline">
+                            Onboard Businesses Globally in Seconds – With Full Compliance
+                        </h2>
+                        <ul class="feature-highlights">
+                            <li>Automated KYB/KYC in under 30 seconds across 300+ jurisdictions</li>
+                            <li>Global sanctions screening against 4,000+ watchlists</li>
+                            <li>Ongoing monitoring with real-time alerts</li>
+                            <li>Audit-ready reporting with full compliance trails</li>
+                        </ul>
+                        <div class="feature-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">300+</span>
+                                <span class="stat-label">Jurisdictions</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">30s</span>
+                                <span class="stat-label">Verification</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">4,000+</span>
+                                <span class="stat-label">Watchlists</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-visual">
+                        <div class="compliance-visual">
+                            <div class="world-map">
+                                <div class="map-dots">
+                                    <div class="map-dot"></div>
+                                    <div class="map-dot"></div>
+                                    <div class="map-dot"></div>
+                                    <div class="map-dot"></div>
+                                    <div class="map-dot"></div>
+                                </div>
+                                <i data-lucide="globe" class="large-icon" style="z-index: 1;"></i>
+                            </div>
+                            <div class="compliance-stats">
+                                300+ jurisdictions, 30-second verification
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 2: Global Payment Processing -->
+        <section class="core-feature" id="payments">
+            <div class="feature-container">
+                <div class="feature-layout reverse">
+                    <div class="feature-content">
+                        <div class="feature-badge">
+                            <i data-lucide="credit-card"></i>
+                            Payment Processing
+                        </div>
+                        <h2 class="feature-headline">
+                            Accept Payments Everywhere – One Platform, All Methods
+                        </h2>
+                        <ul class="feature-highlights">
+                            <li>700+ payment methods including cards, wallets, BNPL, local methods</li>
+                            <li>200+ markets and 150+ currencies supported</li>
+                            <li>Local acquiring for better approval rates</li>
+                            <li>Fast, reliable processing with optimal routing</li>
+                        </ul>
+                        <div class="feature-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">700+</span>
+                                <span class="stat-label">Methods</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">200+</span>
+                                <span class="stat-label">Markets</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">150+</span>
+                                <span class="stat-label">Currencies</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-visual">
+                        <div class="payment-visual">
+                            <div class="payment-methods-grid">
+                                <div class="payment-method">
+                                    <i data-lucide="credit-card"></i>
+                                    <div>Cards</div>
+                                </div>
+                                <div class="payment-method">
+                                    <i data-lucide="wallet"></i>
+                                    <div>Wallets</div>
+                                </div>
+                                <div class="payment-method">
+                                    <i data-lucide="calendar-clock"></i>
+                                    <div>BNPL</div>
+                                </div>
+                                <div class="payment-method">
+                                    <i data-lucide="landmark"></i>
+                                    <div>Banking</div>
+                                </div>
+                                <div class="payment-method">
+                                    <i data-lucide="qr-code"></i>
+                                    <div>QR Codes</div>
+                                </div>
+                                <div class="payment-method">
+                                    <i data-lucide="coins"></i>
+                                    <div>Crypto</div>
+                                </div>
+                                <div class="payment-method">
+                                    <i data-lucide="map-pin"></i>
+                                    <div>Local</div>
+                                </div>
+                                <div class="payment-method">
+                                    <i data-lucide="zap"></i>
+                                    <div>Instant</div>
+                                </div>
+                            </div>
+                            <div style="text-align: center; font-weight: 600; color: var(--primary-green);">
+                                700+ methods, 200+ markets, 150+ currencies
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 3: Payment Orchestration -->
+        <section class="core-feature" id="orchestration">
+            <div class="feature-container">
+                <div class="feature-layout">
+                    <div class="feature-content">
+                        <div class="feature-badge">
+                            <i data-lucide="settings"></i>
+                            Orchestration
+                        </div>
+                        <h2 class="feature-headline">
+                            One Integration, Total Control of Your Payments
+                        </h2>
+                        <ul class="feature-highlights">
+                            <li>Multi-PSP orchestration with intelligent routing</li>
+                            <li>400+ payment methods via single API</li>
+                            <li>No-code integration and updates</li>
+                            <li>Custom checkout and payment links</li>
+                            <li>Built-in vault and tokenization</li>
+                        </ul>
+                        <div class="feature-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">1</span>
+                                <span class="stat-label">API Integration</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">400+</span>
+                                <span class="stat-label">Methods</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">0</span>
+                                <span class="stat-label">Code Required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-visual">
+                        <div class="orchestration-visual">
+                            <div class="orchestration-flow">
+                                <div class="flow-row">
+                                    <div class="flow-box active">Payment Request</div>
+                                    <div class="flow-arrow">→</div>
+                                    <div class="flow-box">Smart Routing</div>
+                                </div>
+                                <div class="flow-row">
+                                    <div class="flow-box">PSP A</div>
+                                    <div class="flow-box active">PSP B ✓</div>
+                                    <div class="flow-box">PSP C</div>
+                                </div>
+                                <div class="flow-row">
+                                    <div class="flow-box active">Success</div>
+                                    <div class="flow-arrow">→</div>
+                                    <div class="flow-box">Settlement</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 4: Fraud Prevention -->
+        <section class="core-feature" id="fraud">
+            <div class="feature-container">
+                <div class="feature-layout reverse">
+                    <div class="feature-content">
+                        <div class="feature-badge">
+                            <i data-lucide="brain-circuit"></i>
+                            AI Fraud Defense
+                        </div>
+                        <h2 class="feature-headline">
+                            Protect Every Transaction – Fraud Defense Powered by AI
+                        </h2>
+                        <ul class="feature-highlights">
+                            <li>Real-time AI fraud detection on trillions of events</li>
+                            <li>Dynamic trust with minimal friction for good customers</li>
+                            <li>Dramatic chargeback reduction (mention 85% example)</li>
+                            <li>Configurable and continuously evolving system</li>
+                        </ul>
+                        <div class="feature-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">85%</span>
+                                <span class="stat-label">Less Fraud</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">1T+</span>
+                                <span class="stat-label">Events Analyzed</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">99.9%</span>
+                                <span class="stat-label">Accuracy</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-visual">
+                        <div class="fraud-visual">
+                            <div class="ai-brain">
+                                <i data-lucide="brain-circuit"></i>
+                            </div>
+                            <div class="fraud-stats">
+                                <div class="fraud-stat">
+                                    <div style="font-size: 2rem; font-weight: 700;">85%</div>
+                                    <div>Fraud Reduction</div>
+                                </div>
+                                <div class="fraud-stat">
+                                    <div style="font-size: 2rem; font-weight: 700;">1T+</div>
+                                    <div>Events Daily</div>
+                                </div>
+                                <div class="fraud-stat">
+                                    <div style="font-size: 2rem; font-weight: 700;">99.9%</div>
+                                    <div>Accuracy</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 5: Frontier Markets -->
+        <section class="core-feature" id="frontier">
+            <div class="feature-container">
+                <div class="feature-layout">
+                    <div class="feature-content">
+                        <div class="feature-badge">
+                            <i data-lucide="trending-up"></i>
+                            Frontier Markets
+                        </div>
+                        <h2 class="feature-headline">
+                            Reach Frontier Markets – Local Payments Made Easy
+                        </h2>
+                        <ul class="feature-highlights">
+                            <li>900+ local payment methods tailored to regions</li>
+                            <li>Single integration for multi-country operations</li>
+                            <li>Local payouts and FX handling</li>
+                            <li>Regional compliance and fraud mitigation</li>
+                        </ul>
+                        <div class="feature-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">900+</span>
+                                <span class="stat-label">Local Methods</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Countries</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">1</span>
+                                <span class="stat-label">Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-visual">
+                        <div class="frontier-visual">
+                            <div class="regions-grid">
+                                <div class="region-card">
+                                    <i data-lucide="globe" class="large-icon"></i>
+                                    <h4>Africa</h4>
+                                    <p>M-Pesa, MTN Money, Airtel Money</p>
+                                </div>
+                                <div class="region-card">
+                                    <i data-lucide="map" class="large-icon"></i>
+                                    <h4>LATAM</h4>
+                                    <p>PIX, OXXO, Boleto, SPEI</p>
+                                </div>
+                                <div class="region-card">
+                                    <i data-lucide="navigation" class="large-icon"></i>
+                                    <h4>Asia</h4>
+                                    <p>GrabPay, GCash, DANA, OVO</p>
+                                </div>
+                                <div class="region-card">
+                                    <i data-lucide="compass" class="large-icon"></i>
+                                    <h4>MENA</h4>
+                                    <p>Fawry, STC Pay, KNET, Benefit</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 6: Cross-Border Settlement -->
+        <section class="core-feature" id="settlement">
+            <div class="feature-container">
+                <div class="feature-layout reverse">
+                    <div class="feature-content">
+                        <div class="feature-badge">
+                            <i data-lucide="zap"></i>
+                            Instant Settlements
+                        </div>
+                        <h2 class="feature-headline">
+                            Instant Global Settlements – Powered by Digital Currency
+                        </h2>
+                        <ul class="feature-highlights">
+                            <li>24/7/365 instant settlements via stablecoin technology</li>
+                            <li>No pre-funding required - on-demand liquidity</li>
+                            <li>90+ markets, 55+ currencies through single API</li>
+                            <li>Full compliance and security with licensed pathways</li>
+                        </ul>
+                        <div class="feature-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">&lt;10s</span>
+                                <span class="stat-label">Settlement Time</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">90+</span>
+                                <span class="stat-label">Markets</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">Availability</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-visual">
+                        <div class="settlement-visual">
+                            <div class="settlement-comparison">
+                                <div class="settlement-option">
+                                    <div class="settlement-icon">
+                                        <i data-lucide="landmark"></i>
+                                    </div>
+                                    <h4>Traditional</h4>
+                                    <div class="settlement-time">3 days</div>
+                                </div>
+                                <div class="vs-divider">vs</div>
+                                <div class="settlement-option">
+                                    <div class="settlement-icon">
+                                        <i data-lucide="zap"></i>
+                                    </div>
+                                    <h4>Globapay</h4>
+                                    <div class="settlement-time">&lt;10 seconds</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="features-cta">
+            <div class="features-cta-container">
+                <h2 class="features-cta-title">Ready to streamline your global payments?</h2>
+                <p class="features-cta-subtitle">Get started with Globapay and transform how you transact globally</p>
+                <div class="features-cta-actions">
+                    <a href="contact.html" class="btn btn-primary btn-large">Get Started with Globapay</a>
+                    <a href="#" class="btn btn-secondary btn-large">Schedule Demo</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/globapay-footer-logo.svg" alt="Globapay" class="footer-logo-img">
+                    </div>
+                    <p class="footer-description">Global payment infrastructure for the next generation of platforms</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="products.html">Globapay Core</a></li>
+                        <li><a href="#">Globagift</a></li>
+                        <li><a href="#">Globainvoice</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Globapay. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Smooth scroll animation trigger
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.feature-content, .feature-visual');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        // Initialize animations on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Smooth scroll to features
+        function scrollToFeatures() {
+            document.getElementById('compliance').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Add some interactivity to payment methods and other elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            const regionCards = document.querySelectorAll('.region-card');
+            const largeIcons = document.querySelectorAll('.large-icon');
+            const previewIcons = document.querySelectorAll('.preview-icon');
+            
+            // Payment method click effects
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+
+            // Region card click effects
+            regionCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const icon = this.querySelector('.large-icon');
+                    if (icon) {
+                        icon.style.transform = 'scale(1.2) rotate(5deg)';
+                        setTimeout(() => {
+                            icon.style.transform = '';
+                        }, 300);
+                    }
+                });
+            });
+
+            // Large icon click effects
+            largeIcons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.3) rotate(-5deg)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 300);
+                });
+            });
+
+            // Preview icon click to scroll to sections
+            previewIcons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-scroll-target');
+                    if (targetId) {
+                        document.querySelector(targetId).scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add stagger animation to preview icons
+            previewIcons.forEach((icon, index) => {
+                icon.style.animationDelay = `${index * 0.1}s`;
+                icon.style.animation = 'fadeInUp 0.6s ease both';
+            });
+
+            // Parallax effect for floating icons
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const floatingIcons = document.querySelectorAll('.floating-icon');
+                
+                floatingIcons.forEach((icon, index) => {
+                    const speed = 0.5 + (index * 0.1);
+                    icon.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

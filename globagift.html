@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobaGift - Sell and distribute digital gift cards globally | Globapay</title>
+    <meta name="description" content="Sell and distribute digital gift cards globally with GlobaGift. Powered by Globapay infrastructure for payments, FX, and compliance.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        /* GlobaGift Specific Styles */
+        :root {
+            --orange-primary: #FF6B35;
+            --orange-light: #FF8C6B;
+            --orange-dark: #E85A2E;
+            --orange-bg: rgba(255, 107, 53, 0.1);
+        }
+
+        .globagift-hero {
+            height: 70vh;
+            min-height: 600px;
+            padding: calc(80px + var(--spacing-lg)) 0 0;
+            background: 
+                linear-gradient(135deg, #0a4d3a 0%, #0d5940 15%),
+                linear-gradient(45deg, #7ED321 0%, #a8e063 30%, #7ED321 60%, #5bb31a 100%);
+            background-size: 100% 100%, 120% 120%;
+            background-position: 0% 0%, -10% -10%;
+            animation: gradientShift 8s ease-in-out infinite;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .globagift-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 1px, transparent 1px),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 1px, transparent 1px),
+                radial-gradient(circle at 40% 60%, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 100px 100px, 80px 80px, 120px 120px;
+            animation: floatPattern 20s linear infinite;
+            z-index: 1;
+        }
+
+        .globagift-hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            position: relative;
+            z-index: 3;
+            text-align: center;
+        }
+
+        /* Logo Section */
+        .logo-section {
+            padding: var(--spacing-2xl) 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .logo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .globagift-logo-main {
+            width: 400px;
+            height: auto;
+            max-width: 100%;
+        }
+
+        .globagift-hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .globagift-hero-subtitle {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            margin-bottom: var(--spacing-2xl);
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.4;
+            font-weight: 400;
+        }
+
+        .globagift-cta {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-xl);
+        }
+
+        /* Social Proof Section */
+        .social-proof {
+            padding: var(--spacing-3xl) 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .social-proof-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .social-proof-headline {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-2xl);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .brand-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-2xl);
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-md);
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all var(--transition-base);
+            height: 80px;
+            min-width: 120px;
+        }
+
+        .brand-logo:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .brand-logo-img {
+            max-width: 100px;
+            max-height: 50px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: blur(3px);
+            opacity: 0.7;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: var(--spacing-4xl) 0;
+            background: var(--background-subtle);
+        }
+
+        .video-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            text-align: center;
+        }
+
+        .video-headline {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .video-subline {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-2xl);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        .video-wrapper {
+            position: relative;
+            background: linear-gradient(135deg, var(--orange-primary), var(--orange-light));
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .video-embed {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: var(--radius-lg);
+        }
+
+        .video-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-2xl);
+        }
+
+        .video-benefit {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-lg);
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .video-benefit i {
+            color: var(--orange-primary);
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        /* Problem Solution Section */
+        .problem-solution {
+            padding: var(--spacing-4xl) 0;
+            background: var(--white);
+        }
+
+        .problem-solution-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .problem-solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-3xl);
+            align-items: center;
+        }
+
+        .problem-side {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: var(--spacing-3xl);
+            border-radius: var(--radius-xl);
+            border-left: 4px solid #dc3545;
+        }
+
+        .solution-side {
+            background: linear-gradient(135deg, var(--orange-bg) 0%, rgba(255, 140, 107, 0.05) 100%);
+            padding: var(--spacing-3xl);
+            border-radius: var(--radius-xl);
+            border-left: 4px solid var(--orange-primary);
+        }
+
+        .problem-title, .solution-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .problem-title {
+            color: #dc3545;
+        }
+
+        .solution-title {
+            color: var(--orange-primary);
+        }
+
+        .problem-text, .solution-text {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: var(--spacing-4xl) 0;
+            background: var(--background-subtle);
+        }
+
+        .how-it-works-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .how-it-works-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--spacing-3xl);
+            color: var(--text-primary);
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--orange-primary), var(--orange-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-icon i {
+            color: var(--white);
+            width: 32px;
+            height: 32px;
+        }
+
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .step-description {
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: var(--spacing-4xl) 0;
+            background: var(--white);
+        }
+
+        .benefits-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .benefits-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--spacing-3xl);
+            color: var(--text-primary);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: var(--spacing-2xl);
+            border-radius: var(--radius-xl);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            border: 1px solid var(--border-light);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--orange-primary);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--orange-primary), var(--orange-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .benefit-icon i {
+            color: var(--white);
+            width: 28px;
+            height: 28px;
+        }
+
+        .benefit-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .benefit-description {
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Platform Features Section */
+        .platform-features {
+            padding: var(--spacing-4xl) 0;
+            background: var(--background-subtle);
+        }
+
+        .platform-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .platform-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--spacing-3xl);
+            color: var(--text-primary);
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-2xl);
+        }
+
+        .platform-feature {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .platform-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--orange-bg), rgba(255, 140, 107, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--orange-primary);
+        }
+
+        .platform-content {
+            padding: var(--spacing-xl);
+        }
+
+        .platform-feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .platform-feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .platform-feature-list li {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-muted);
+        }
+
+        .platform-feature-list li i {
+            color: var(--orange-primary);
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: var(--spacing-4xl) 0;
+            background: var(--white);
+        }
+
+        .stats-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            text-align: center;
+        }
+
+        .stats-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-3xl);
+            color: var(--text-primary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-2xl);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--orange-primary), var(--orange-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+        }
+
+        .stat-icon i {
+            color: var(--white);
+            width: 28px;
+            height: 28px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--orange-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-label {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            padding: var(--spacing-4xl) 0;
+            background: linear-gradient(135deg, var(--orange-primary), var(--orange-light));
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 Q50,30 100,0 L100,100 L0,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .final-cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-cta-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .final-cta-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-2xl);
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .final-cta-actions {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .cta-btn-primary {
+            background: var(--white);
+            color: var(--orange-primary);
+            border: 2px solid var(--white);
+        }
+
+        .cta-btn-primary:hover {
+            background: transparent;
+            color: var(--white);
+        }
+
+        .cta-btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .cta-btn-secondary:hover {
+            background: var(--white);
+            color: var(--orange-primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .globagift-cta,
+            .final-cta-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .problem-solution-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-2xl);
+            }
+
+            .brand-logos {
+                gap: var(--spacing-lg);
+            }
+
+            .brand-logo {
+                font-size: 1.25rem;
+                padding: var(--spacing-sm) var(--spacing-md);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Intersection Observer for scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .animate-on-scroll.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="images/globapay-logo.svg" alt="Globapay" class="logo-img">
+                    </a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="features.html" class="nav-link">Features</a>
+                    <div class="nav-item">
+                        <a href="products.html" class="nav-link has-dropdown">
+                            Products
+                            <i data-lucide="chevron-down" class="dropdown-arrow"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="globagift.html">GlobaGift</a>
+                            <a href="globainvoice.html">GlobaInvoice</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="contact.html" class="btn btn-primary">Request Demo</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 1. Hero Section -->
+        <section class="globagift-hero">
+            <div class="globagift-hero-container">
+                <h1 class="globagift-hero-title">Sell and distribute digital gift cards globally</h1>
+                <p class="globagift-hero-subtitle">
+                    Powered by Globapay infrastructure for payments, FX, and compliance
+                </p>
+                <div class="globagift-cta">
+                    <a href="#" class="btn btn-primary btn-large">Start Selling Gift Cards</a>
+                    <a href="#" class="btn btn-secondary btn-large">Book a Demo</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- GlobaGift Logo Section -->
+        <section class="logo-section">
+            <div class="logo-container">
+                <img src="images/globagift-logo.svg" alt="GlobaGift" class="globagift-logo-main">
+            </div>
+        </section>
+
+        <!-- 2. Social Proof Section -->
+        <section class="social-proof">
+            <div class="social-proof-container">
+                <p class="social-proof-headline">Coming soon...</p>
+                <div class="brand-logos">
+                    <div class="brand-logo"><img src="images/Globagift Partners/BK.png" alt="Burger King" class="brand-logo-img"></div>
+                    <div class="brand-logo"><img src="images/Globagift Partners/Dominos.png" alt="Domino's" class="brand-logo-img"></div>
+                    <div class="brand-logo"><img src="images/Globagift Partners/Wendy's.png" alt="Wendy's" class="brand-logo-img"></div>
+                    <div class="brand-logo"><img src="images/Globagift Partners/Aldo.png" alt="ALDO" class="brand-logo-img"></div>
+                    <div class="brand-logo"><img src="images/Globagift Partners/Victorias Secret.png" alt="Victoria's Secret" class="brand-logo-img"></div>
+                    <div class="brand-logo"><img src="images/Globagift Partners/Aeropostale.png" alt="Aeropostale" class="brand-logo-img"></div>
+                    <div class="brand-logo"><img src="images/Globagift Partners/Bath&bodyworks.png" alt="Bath & Body Works" class="brand-logo-img"></div>
+                    <div class="brand-logo"><img src="images/Globagift Partners/Caribbean Airlines.png" alt="Caribbean Airlines" class="brand-logo-img"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Explainer Video Block -->
+        <section class="video-section">
+            <div class="video-container">
+                <h2 class="video-headline">See GlobaGift in Action</h2>
+                <p class="video-subline">
+                    In just 90 seconds, discover how businesses launch gift cards, send them digitally, and redeem them globally.
+                </p>
+                
+                <div class="video-wrapper">
+                    <div class="video-embed">
+                        <iframe src="https://player.vimeo.com/video/1081293772?h=1134ca0e20&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" 
+                                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                                title="GlobaGift Demo">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="video-benefits">
+                    <div class="video-benefit">
+                        <i data-lucide="zap"></i>
+                        <span><strong>Launch in minutes</strong> — no complex setup.</span>
+                    </div>
+                    <div class="video-benefit">
+                        <i data-lucide="send"></i>
+                        <span><strong>Send instantly</strong> via SMS or email.</span>
+                    </div>
+                    <div class="video-benefit">
+                        <i data-lucide="heart"></i>
+                        <span><strong>Boost loyalty</strong> with secure, global redemption.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Problem → Solution Snapshot -->
+        <section class="problem-solution">
+            <div class="problem-solution-container">
+                <div class="problem-solution-grid">
+                    <div class="problem-side">
+                        <h3 class="problem-title">The Problem</h3>
+                        <p class="problem-text">"Launching a gift card program is often slow, expensive, and complex."</p>
+                        <p class="problem-text">"Most platforms don't support cross-border reach or multiple sales channels."</p>
+                        <p class="problem-text">"Limited distribution means lost sales and lower loyalty."</p>
+                    </div>
+                    
+                    <div class="solution-side">
+                        <h3 class="solution-title">GlobaGift removes the complexity</h3>
+                        <p class="solution-text">"Launch instantly, sell anywhere, and manage everything from one simple dashboard."</p>
+                        <p class="solution-text">"All powered by Globapay's global payments infrastructure."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. How It Works -->
+        <section class="how-it-works">
+            <div class="how-it-works-container">
+                <h2 class="how-it-works-title">How It Works</h2>
+                
+                <div class="steps-container">
+                    <div class="step animate-on-scroll">
+                        <div class="step-icon">
+                            <i data-lucide="plus"></i>
+                        </div>
+                        <h3 class="step-title">Create</h3>
+                        <p class="step-description">Merchants set up gift cards in minutes via dashboard.</p>
+                    </div>
+                    
+                    <div class="step animate-on-scroll">
+                        <div class="step-icon">
+                            <i data-lucide="send"></i>
+                        </div>
+                        <h3 class="step-title">Send</h3>
+                        <p class="step-description">Customers buy & send via SMS, email, or link.</p>
+                    </div>
+                    
+                    <div class="step animate-on-scroll">
+                        <div class="step-icon">
+                            <i data-lucide="smartphone"></i>
+                        </div>
+                        <h3 class="step-title">Receive</h3>
+                        <p class="step-description">Recipients get a digital card instantly on their phone.</p>
+                    </div>
+                    
+                    <div class="step animate-on-scroll">
+                        <div class="step-icon">
+                            <i data-lucide="scan-line"></i>
+                        </div>
+                        <h3 class="step-title">Redeem</h3>
+                        <p class="step-description">Scan QR at checkout, spend online or in-store.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Key Benefits Section -->
+        <section class="benefits-section">
+            <div class="benefits-container">
+                <h2 class="benefits-title">Why GlobaGift</h2>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card animate-on-scroll">
+                        <div class="benefit-icon">
+                            <i data-lucide="trending-up"></i>
+                        </div>
+                        <h3 class="benefit-title">Boost Revenue</h3>
+                        <p class="benefit-description">Increase AOV and repeat sales.</p>
+                    </div>
+                    
+                    <div class="benefit-card animate-on-scroll">
+                        <div class="benefit-icon">
+                            <i data-lucide="globe"></i>
+                        </div>
+                        <h3 class="benefit-title">Expand Reach</h3>
+                        <p class="benefit-description">Sell across 200+ markets and 700+ methods.</p>
+                    </div>
+                    
+                    <div class="benefit-card animate-on-scroll">
+                        <div class="benefit-icon">
+                            <i data-lucide="heart"></i>
+                        </div>
+                        <h3 class="benefit-title">Increase Loyalty</h3>
+                        <p class="benefit-description">Keep customers coming back.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Platform Features -->
+        <section class="platform-features">
+            <div class="platform-container">
+                <h2 class="platform-title">All-in-One Gift Card Management</h2>
+                
+                <div class="platform-grid">
+                    <div class="platform-feature animate-on-scroll">
+                        <div class="platform-image">
+                            🌐
+                        </div>
+                        <div class="platform-content">
+                            <h3 class="platform-feature-title">Sell Anywhere</h3>
+                            <ul class="platform-feature-list">
+                                <li><i data-lucide="check"></i>Embedded finance: add gift cards to your website with a few lines of code.</li>
+                                <li><i data-lucide="check"></i>Instant setup, no dev-heavy integration.</li>
+                                <li><i data-lucide="check"></i>Global reach via 700+ payment methods.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="platform-feature animate-on-scroll">
+                        <div class="platform-image">
+                            ⚙️
+                        </div>
+                        <div class="platform-content">
+                            <h3 class="platform-feature-title">Manage Easily</h3>
+                            <ul class="platform-feature-list">
+                                <li><i data-lucide="check"></i>Centralized dashboard to create, edit, and pause cards.</li>
+                                <li><i data-lucide="check"></i>Upload custom designs and branding.</li>
+                                <li><i data-lucide="check"></i>Full visibility of card status (active, paused, expired).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="platform-feature animate-on-scroll">
+                        <div class="platform-image">
+                            📊
+                        </div>
+                        <div class="platform-content">
+                            <h3 class="platform-feature-title">Track Everything</h3>
+                            <ul class="platform-feature-list">
+                                <li><i data-lucide="check"></i>Analytics dashboard with sales, redemption, usage.</li>
+                                <li><i data-lucide="check"></i>Identify top-performing cards.</li>
+                                <li><i data-lucide="check"></i>Make data-driven decisions.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Numbers / Proof Section -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <h2 class="stats-title">The Numbers Speak for Themselves</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-item animate-on-scroll">
+                        <div class="stat-icon">
+                            <i data-lucide="banknote"></i>
+                        </div>
+                        <div class="stat-number">135+</div>
+                        <div class="stat-label">Currencies</div>
+                    </div>
+                    
+                    <div class="stat-item animate-on-scroll">
+                        <div class="stat-icon">
+                            <i data-lucide="credit-card"></i>
+                        </div>
+                        <div class="stat-number">700+</div>
+                        <div class="stat-label">Payment Methods</div>
+                    </div>
+                    
+                    <div class="stat-item animate-on-scroll">
+                        <div class="stat-icon">
+                            <i data-lucide="activity"></i>
+                        </div>
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">Platform Uptime</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Call to Action -->
+        <section class="final-cta">
+            <div class="final-cta-container">
+                <h2 class="final-cta-title">Ready to Launch Your Gift Card Program?</h2>
+                <p class="final-cta-subtitle">
+                    Start today with seamless setup, global reach, and built-in compliance.
+                </p>
+                <div class="final-cta-actions">
+                    <a href="#" class="btn btn-large cta-btn-primary">Start Selling Gift Cards</a>
+                    <a href="#" class="btn btn-large cta-btn-secondary">Book a Demo</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/globapay-footer-logo.svg" alt="Globapay" class="footer-logo-img">
+                    </div>
+                    <p class="footer-description">Global payment infrastructure for the next generation of platforms</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="products.html">Globapay Core</a></li>
+                        <li><a href="globagift.html">GlobaGift</a></li>
+                        <li><a href="globainvoice.html">GlobaInvoice</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Globapay. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            animateElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

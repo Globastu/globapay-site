@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globapay - Global Payment Infrastructure Platform</title>
+    <meta name="description" content="Payment orchestration, compliance, and cross-border settlement infrastructure for platforms. 700+ payment methods, 150+ currencies, 200+ global markets.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        /* Update alt-home hero to match other hero backgrounds */
+        .hero.alt-hero {
+            background: 
+                linear-gradient(135deg, #0a4d3a 0%, #0d5940 15%),
+                linear-gradient(45deg, #7ED321 0%, #a8e063 30%, #7ED321 60%, #5bb31a 100%) !important;
+            background-size: 100% 100%, 120% 120%;
+            background-position: 0% 0%, -10% -10%;
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+
+        .hero.alt-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 1px, transparent 1px),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 1px, transparent 1px),
+                radial-gradient(circle at 40% 60%, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 100px 100px, 80px 80px, 120px 120px;
+            animation: floatPattern 20s linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Ensure alt-hero-container has proper z-index */
+        .alt-hero-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Override any conflicting gray gradient backgrounds - be more specific */
+        .hero.alt-hero .hero-container {
+            background: transparent !important;
+        }
+        
+        .alt-hero-content {
+            background: transparent !important;
+        }
+        
+        /* Ensure proper button styling for alt home page */
+        .hero.alt-hero .btn-primary {
+            background-color: #7ED321 !important;
+            color: white !important;
+            border: 2px solid #7ED321 !important;
+        }
+        
+        .hero.alt-hero .btn-primary:hover {
+            background-color: #5bb31a !important;
+            border-color: #5bb31a !important;
+        }
+        
+        .hero.alt-hero .btn-secondary {
+            background-color: transparent !important;
+            color: white !important;
+            border: 2px solid white !important;
+        }
+        
+        .hero.alt-hero .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        /* Ensure text colors are visible on alt home page */
+        .hero.alt-hero .hero-title {
+            color: white !important;
+        }
+        
+        .hero.alt-hero .hero-subtitle {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+        
+        /* Center the CTA buttons on alt home page */
+        .hero.alt-hero .hero-ctas {
+            justify-content: center !important;
+            text-align: center !important;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="images/globapay-logo.svg" alt="Globapay" class="logo-img">
+                    </a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="features.html" class="nav-link">Features</a>
+                    <a href="index.html" class="nav-link">Home</a>
+                    <div class="nav-item">
+                        <a href="products.html" class="nav-link has-dropdown">
+                            Products
+                            <i data-lucide="chevron-down" class="dropdown-arrow"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="globagift.html">GlobaGift</a>
+                            <a href="globainvoice.html">GlobaInvoice</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="contact.html" class="btn btn-primary">Request Demo</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero alt-hero">
+            <div class="alt-hero-container">
+                <div class="alt-hero-content">
+                    <h1 class="hero-title">
+                        The Payment Infrastructure 
+                        <span class="hero-title-highlight">Powering Global Platforms</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Payment orchestration, compliance, and cross-border settlement infrastructure for platforms
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="contact.html" class="btn btn-primary btn-large">Request Demo</a>
+                        <a href="features.html" class="btn btn-secondary btn-large">View Features</a>
+                    </div>
+                </div>
+                <div class="alt-hero-visual">
+                    <canvas id="threat-map-canvas" class="threat-map-canvas"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Metrics Section -->
+        <section class="metrics">
+            <div class="metrics-container">
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-number" data-count="700">0</div>
+                        <div class="metric-label">Payment Methods</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-number" data-count="150">0</div>
+                        <div class="metric-label">Currencies</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-number" data-count="200">0</div>
+                        <div class="metric-label">Global Markets</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-number" data-count="50">0</div>
+                        <div class="metric-label">Local Markets</div>
+                    </div>
+                </div>
+                
+                <!-- Payment Providers Carousel -->
+                <div class="providers-carousel">
+                    <div class="providers-track">
+                        <div class="provider-logo"><img src="images/providers/visa.svg" alt="Visa"></div>
+                        <div class="provider-logo"><img src="images/providers/mastercard.svg" alt="Mastercard"></div>
+                        <div class="provider-logo"><img src="images/providers/apple-pay.svg" alt="Apple Pay"></div>
+                        <div class="provider-logo"><img src="images/providers/google-pay.svg" alt="Google Pay"></div>
+                        <div class="provider-logo"><img src="images/providers/paypal.svg" alt="PayPal"></div>
+                        <div class="provider-logo"><img src="images/providers/alipay.svg" alt="Alipay"></div>
+                        <div class="provider-logo"><img src="images/providers/unionpay.svg" alt="UnionPay"></div>
+                        <div class="provider-logo"><img src="images/providers/ideal.svg" alt="iDEAL"></div>
+                        <div class="provider-logo"><img src="images/providers/stripe.svg" alt="Stripe"></div>
+                        <div class="provider-logo"><img src="images/providers/adyen.svg" alt="Adyen"></div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="provider-logo"><img src="images/providers/visa.svg" alt="Visa"></div>
+                        <div class="provider-logo"><img src="images/providers/mastercard.svg" alt="Mastercard"></div>
+                        <div class="provider-logo"><img src="images/providers/apple-pay.svg" alt="Apple Pay"></div>
+                        <div class="provider-logo"><img src="images/providers/google-pay.svg" alt="Google Pay"></div>
+                        <div class="provider-logo"><img src="images/providers/paypal.svg" alt="PayPal"></div>
+                        <div class="provider-logo"><img src="images/providers/alipay.svg" alt="Alipay"></div>
+                        <div class="provider-logo"><img src="images/providers/unionpay.svg" alt="UnionPay"></div>
+                        <div class="provider-logo"><img src="images/providers/ideal.svg" alt="iDEAL"></div>
+                        <div class="provider-logo"><img src="images/providers/stripe.svg" alt="Stripe"></div>
+                        <div class="provider-logo"><img src="images/providers/adyen.svg" alt="Adyen"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Proposition Blocks -->
+        <section class="value-props">
+            <div class="value-props-container">
+                <h2 class="section-title">Built for Global Scale</h2>
+                <div class="value-props-grid">
+                    <div class="value-prop-item">
+                        <div class="value-prop-icon">
+                            <i data-lucide="shuffle"></i>
+                        </div>
+                        <h3 class="value-prop-title">Payment Orchestration</h3>
+                        <p class="value-prop-description">Smart routing across processors and alternative payment methods for optimal conversion and cost efficiency</p>
+                    </div>
+                    <div class="value-prop-item">
+                        <div class="value-prop-icon">
+                            <i data-lucide="globe"></i>
+                        </div>
+                        <h3 class="value-prop-title">Cross-Border Excellence</h3>
+                        <p class="value-prop-description">Web3 + traditional rails for seamless settlement in frontier markets with real-time visibility</p>
+                    </div>
+                    <div class="value-prop-item">
+                        <div class="value-prop-icon">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+                        <h3 class="value-prop-title">Complete Compliance</h3>
+                        <p class="value-prop-description">KYB, AML, fraud prevention, and PCI compliance handled end-to-end across all markets</p>
+                    </div>
+                    <div class="value-prop-item">
+                        <div class="value-prop-icon">
+                            <i data-lucide="code"></i>
+                        </div>
+                        <h3 class="value-prop-title">Developer-Friendly APIs</h3>
+                        <p class="value-prop-description">Easy integration for platforms with comprehensive SDKs and real-time webhooks</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo Section -->
+        <section class="demo-section">
+            <div class="demo-container">
+                <h2 class="section-title">See Globapay in Action</h2>
+                <p class="section-subtitle">Experience how our payment infrastructure powers different platform scenarios</p>
+                
+                <div class="demo-tabs">
+                    <button class="demo-tab active" data-scenario="insurance">Insurance Platform</button>
+                    <button class="demo-tab" data-scenario="recreation">Recreation Platform</button>
+                </div>
+
+                <!-- Insurance Demo -->
+                <div class="demo-scenario active" id="insurance-demo">
+                    <div class="demo-content">
+                        <div class="demo-dashboard">
+                            <div class="dashboard-header">
+                                <h3>Acme Insurance Dashboard</h3>
+                                <div class="dashboard-actions">
+                                    <button class="btn btn-primary demo-trigger" id="issue-payment-btn">Issue Policy Payment</button>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-form" id="payment-form" style="display: none;">
+                                <div class="form-group">
+                                    <label>Customer Name</label>
+                                    <input type="text" value="John Smith" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label>Policy Amount</label>
+                                    <input type="text" value="$2,500" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label>Policy Type</label>
+                                    <select class="form-input">
+                                        <option>Auto Insurance</option>
+                                        <option>Home Insurance</option>
+                                        <option>Life Insurance</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Delivery Method</label>
+                                    <div class="delivery-options">
+                                        <button class="delivery-btn active" data-method="email"><i data-lucide="mail"></i> Email</button>
+                                        <button class="delivery-btn" data-method="whatsapp"><i data-lucide="message-circle"></i> WhatsApp</button>
+                                        <button class="delivery-btn" data-method="sms"><i data-lucide="smartphone"></i> SMS</button>
+                                    </div>
+                                </div>
+                                <button class="btn btn-success" id="send-payment-link">Send Payment Link</button>
+                            </div>
+
+                            <div class="payment-flow" id="payment-flow" style="display: none;">
+                                <div class="flow-steps">
+                                    <div class="flow-step active">
+                                        <div class="step-icon"><i data-lucide="mail"></i></div>
+                                        <div class="step-text">Payment link sent via email</div>
+                                    </div>
+                                    <div class="flow-step">
+                                        <div class="step-icon"><i data-lucide="mouse-pointer-click"></i></div>
+                                        <div class="step-text">Customer clicks secure payment page</div>
+                                    </div>
+                                    <div class="flow-step">
+                                        <div class="step-icon"><i data-lucide="shield-check"></i></div>
+                                        <div class="step-text">Smart routing & compliance checks</div>
+                                    </div>
+                                    <div class="flow-step">
+                                        <div class="step-icon"><i data-lucide="check-circle"></i></div>
+                                        <div class="step-text">Payment processed & settled</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" id="reset-insurance-demo">Start Over</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recreation Demo -->
+                <div class="demo-scenario" id="recreation-demo">
+                    <div class="demo-content">
+                        <div class="demo-dashboard">
+                            <div class="dashboard-header">
+                                <h3>Premier Tennis Club Dashboard</h3>
+                            </div>
+                            
+                            <div class="booking-form">
+                                <h4>Book Court & Pay</h4>
+                                <div class="form-group">
+                                    <label>Court Selection</label>
+                                    <select class="form-input">
+                                        <option>Court 1 - Clay</option>
+                                        <option>Court 2 - Hard</option>
+                                        <option>Court 3 - Grass</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Time Slot</label>
+                                    <select class="form-input">
+                                        <option>2:00 PM - 3:00 PM</option>
+                                        <option>3:00 PM - 4:00 PM</option>
+                                        <option>4:00 PM - 5:00 PM</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Amount: $75</label>
+                                </div>
+                                
+                                <div class="payment-methods">
+                                    <h5>Payment Method</h5>
+                                    <div class="payment-options">
+                                        <button class="payment-option active" data-method="card">
+                                            <i data-lucide="credit-card"></i> Credit Card
+                                        </button>
+                                        <button class="payment-option" data-method="wallet">
+                                            <i data-lucide="wallet"></i> Digital Wallet
+                                        </button>
+                                        <button class="payment-option" data-method="local">
+                                            <i data-lucide="banknote"></i> Local Payment
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <button class="btn btn-success" id="process-booking">Process Payment</button>
+                            </div>
+
+                            <div class="routing-visualization" id="routing-viz" style="display: none;">
+                                <h4>Real-time Payment Processing</h4>
+                                <div class="routing-steps">
+                                    <div class="routing-step">
+                                        <div class="step-icon"><i data-lucide="cpu"></i></div>
+                                        <div class="step-text">Optimal processor selected</div>
+                                    </div>
+                                    <div class="routing-step">
+                                        <div class="step-icon"><i data-lucide="scan-line"></i></div>
+                                        <div class="step-text">Fraud & compliance checks</div>
+                                    </div>
+                                    <div class="routing-step">
+                                        <div class="step-icon"><i data-lucide="network"></i></div>
+                                        <div class="step-text">Settlement option: Traditional/Web3</div>
+                                    </div>
+                                    <div class="routing-step">
+                                        <div class="step-icon"><i data-lucide="calendar-check"></i></div>
+                                        <div class="step-text">Booking confirmed</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" id="reset-recreation-demo">Book Another Court</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust & Credibility -->
+        <section class="trust">
+            <div class="trust-container">
+                <h2 class="section-title">Trusted by Platforms Globally</h2>
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <div class="trust-icon"><i data-lucide="shield"></i></div>
+                        <h3>Enterprise Security</h3>
+                        <p>SOC 2 Type II, PCI DSS Level 1 compliant</p>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon"><i data-lucide="zap"></i></div>
+                        <h3>99.9% Uptime</h3>
+                        <p>Industry-leading reliability and performance</p>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon"><i data-lucide="map"></i></div>
+                        <h3>Global Coverage</h3>
+                        <p>Supporting platforms across 6 continents</p>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon"><i data-lucide="users"></i></div>
+                        <h3>Founded by Experts</h3>
+                        <p>Led by payment industry veterans</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="cta-container">
+                <h2 class="cta-title">Ready to Scale Your Payment Infrastructure?</h2>
+                <p class="cta-subtitle">Join the platforms building the future of global commerce</p>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn btn-primary btn-large">Request Demo</a>
+                    <a href="contact.html" class="btn btn-secondary btn-large">Contact Sales</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/globapay-footer-logo.svg" alt="Globapay" class="footer-logo-img">
+                    </div>
+                    <p class="footer-description">Global payment infrastructure for the next generation of platforms</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#">Globapay Core</a></li>
+                        <li><a href="#">Globagift</a></li>
+                        <li><a href="#">Globainvoice</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Globapay. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="https://unpkg.com/@rive-app/canvas@latest"></script>
+    <script src="scripts/threat-map.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
