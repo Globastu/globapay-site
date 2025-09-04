@@ -40,6 +40,37 @@
         .office-icon i {
             margin: 0;
         }
+
+        /* Team member photo styling */
+        .member-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Bio toggle functionality */
+        .bio-toggle {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 12px;
+            background: transparent;
+            color: var(--primary-color, #0066cc);
+            border: 1px solid var(--primary-color, #0066cc);
+            border-radius: 4px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .bio-toggle:hover {
+            background: var(--primary-color, #0066cc);
+            color: white;
+        }
+
+        .member-bio {
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
@@ -241,57 +272,37 @@
                 <div class="team-grid">
                     <div class="team-member">
                         <div class="member-avatar">
-                            <div class="avatar-placeholder">👤</div>
+                            <img src="images/team/stuart-shanahan.png" alt="Stuart Shanahan" class="member-photo">
                         </div>
-                        <h4 class="member-name">Sarah Chen</h4>
+                        <h4 class="member-name">Stuart Shanahan</h4>
                         <p class="member-role">Chief Executive Officer</p>
-                        <p class="member-bio">Former VP of Global Payments at Stripe. Led expansion into 15 new markets and built partnerships with major processors worldwide.</p>
+                        <p class="member-bio">
+                            <span class="bio-preview">With extensive experience in fintech and strategic leadership, Stuart has held key roles across global payment ecosystems. As Director of Strategic Partnerships at Ding...</span>
+                            <span class="bio-full" style="display: none;">With extensive experience in fintech and strategic leadership, Stuart has held key roles across global payment ecosystems. As Director of Strategic Partnerships at Ding, Stuart managed relationships with industry leaders like Western Union, Moneygram, and Ingenico, while driving innovation in embedded finance. Previously, as CEO of Paymaster Jamaica, Stuart led the $250M GTV business through a successful digital transformation, boosting revenue and operational efficiency. At PayPoint Ireland, Stuart oversaw operations for the Irish leg of a FTSE 250 multi-channel payments business.</span>
+                            <button class="bio-toggle" onclick="toggleBio(this)">Show more</button>
+                        </p>
                         <div class="member-experience">
                             <span class="experience-tag">15+ years</span>
-                            <span class="experience-tag">Payments</span>
-                            <span class="experience-tag">Global Expansion</span>
-                        </div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="member-avatar">
-                            <div class="avatar-placeholder">👤</div>
-                        </div>
-                        <h4 class="member-name">Marcus Rodriguez</h4>
-                        <p class="member-role">Chief Technology Officer</p>
-                        <p class="member-bio">Previously Principal Engineer at PayPal, where he architected systems processing $100B+ annually. Expert in distributed systems and financial infrastructure.</p>
-                        <div class="member-experience">
-                            <span class="experience-tag">20+ years</span>
                             <span class="experience-tag">Fintech</span>
+                            <span class="experience-tag">Leadership</span>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <img src="images/team/eoin-holland.jpg" alt="Eoin Holland" class="member-photo">
+                        </div>
+                        <h4 class="member-name">Eoin Holland</h4>
+                        <p class="member-role">Technical Director</p>
+                        <p class="member-bio">
+                            <span class="bio-preview">A skilled technical director with an extensive background in systems architecture, integration, and team management. Eoin's diverse skill set ensures the seamless implementation...</span>
+                            <span class="bio-full" style="display: none;">A skilled technical director with an extensive background in systems architecture, integration, and team management. Eoin's diverse skill set ensures the seamless implementation of Globapay's technology platforms, leveraging API-driven solutions to create scalable and secure products for the global market. In addition to his technical expertise, he has successfully built and scaled a creative business, working with some of the world's most recognisable brands, such as Diageo, Jameson, Disney, Absolut and Maldron Hotels. His experience in managing complex projects, delivering high-quality solutions, and growing a respected business from the ground up brings a unique strategic perspective to Globapay's technology and operations.</span>
+                            <button class="bio-toggle" onclick="toggleBio(this)">Show more</button>
+                        </p>
+                        <div class="member-experience">
+                            <span class="experience-tag">15+ years</span>
                             <span class="experience-tag">Architecture</span>
-                        </div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="member-avatar">
-                            <div class="avatar-placeholder">👤</div>
-                        </div>
-                        <h4 class="member-name">Amara Okafor</h4>
-                        <p class="member-role">Chief Compliance Officer</p>
-                        <p class="member-bio">Former Head of Regulatory Affairs at Adyen. Deep expertise in global compliance frameworks, AML/KYC, and emerging market regulations.</p>
-                        <div class="member-experience">
-                            <span class="experience-tag">12+ years</span>
-                            <span class="experience-tag">Compliance</span>
-                            <span class="experience-tag">Regulation</span>
-                        </div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="member-avatar">
-                            <div class="avatar-placeholder">👤</div>
-                        </div>
-                        <h4 class="member-name">David Kim</h4>
-                        <p class="member-role">Head of Product</p>
-                        <p class="member-bio">Product leader from Square, where he launched payment products serving millions of merchants. Focused on developer experience and platform scalability.</p>
-                        <div class="member-experience">
-                            <span class="experience-tag">10+ years</span>
-                            <span class="experience-tag">Product</span>
-                            <span class="experience-tag">B2B Platforms</span>
+                            <span class="experience-tag">Leadership</span>
                         </div>
                     </div>
                 </div>
@@ -551,6 +562,23 @@
     <script>
         // Initialize Lucide icons
         lucide.createIcons();
+
+        // Bio toggle functionality
+        function toggleBio(button) {
+            const memberBio = button.parentElement;
+            const bioPreview = memberBio.querySelector('.bio-preview');
+            const bioFull = memberBio.querySelector('.bio-full');
+            
+            if (bioFull.style.display === 'none') {
+                bioPreview.style.display = 'none';
+                bioFull.style.display = 'inline';
+                button.textContent = 'Show less';
+            } else {
+                bioPreview.style.display = 'inline';
+                bioFull.style.display = 'none';
+                button.textContent = 'Show more';
+            }
+        }
     </script>
 </body>
 </html>
