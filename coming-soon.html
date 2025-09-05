@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Globapay</title>
+    <meta name="description" content="Exciting new features coming soon to Globapay's payment infrastructure platform.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        .coming-soon-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-teal) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-soon-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(255,255,255,0.05) 0%, transparent 50%);
+        }
+
+        .coming-soon-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .coming-soon-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .coming-soon-icon i {
+            width: 60px;
+            height: 60px;
+            color: white;
+        }
+
+        .coming-soon-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .coming-soon-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .launch-date {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            padding: 1rem 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            display: inline-block;
+        }
+
+        .feature-preview {
+            padding: 4rem 0;
+            background: var(--background-light);
+        }
+
+        .preview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .preview-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .preview-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preview-icon i {
+            width: 30px;
+            height: 30px;
+            color: white;
+        }
+
+        .preview-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .preview-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .notify-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .notify-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .notify-form {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .notify-input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .notify-input:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+
+        .notify-btn {
+            padding: 1rem 2rem;
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .notify-btn:hover {
+            background: var(--primary-green-hover);
+        }
+
+        @media (max-width: 768px) {
+            .coming-soon-title {
+                font-size: 2.5rem;
+            }
+            
+            .notify-form {
+                flex-direction: column;
+            }
+            
+            .notify-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="images/globapay-logo.svg" alt="Globapay" class="logo-img">
+                    </a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="features.html" class="nav-link">Features</a>
+                    <div class="nav-item">
+                        <a href="products.html" class="nav-link has-dropdown">
+                            Products
+                            <i data-lucide="chevron-down" class="dropdown-arrow"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="globagift.html">GlobaGift</a>
+                            <a href="globainvoice.html">GlobaInvoice</a>
+                            <a href="alt-home.html">Alt Home</a>
+                            <a href="coming-soon-simple.html">Coming Soon</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="contact.html" class="btn btn-primary">Request Demo</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Coming Soon Hero -->
+        <section class="coming-soon-hero">
+            <div class="coming-soon-content">
+                <div class="coming-soon-icon">
+                    <i data-lucide="rocket"></i>
+                </div>
+                <h1 class="coming-soon-title">Something Amazing is Coming</h1>
+                <p class="coming-soon-subtitle">
+                    We're working on revolutionary new features that will transform how platforms handle global payments. 
+                    Stay tuned for the next evolution of payment infrastructure.
+                </p>
+                <div class="launch-date">
+                    <i data-lucide="calendar" style="width: 18px; height: 18px; margin-right: 8px; display: inline-block; vertical-align: middle;"></i>
+                    Launching Q2 2025
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Preview -->
+        <section class="feature-preview">
+            <div class="preview-container">
+                <h2 class="section-title">What's Coming</h2>
+                <p class="section-subtitle">Get a sneak peek at the groundbreaking features we're building</p>
+                
+                <div class="preview-grid">
+                    <div class="preview-item">
+                        <div class="preview-icon">
+                            <i data-lucide="brain"></i>
+                        </div>
+                        <h3 class="preview-title">AI-Powered Routing</h3>
+                        <p class="preview-description">
+                            Machine learning algorithms that optimize payment routes in real-time, increasing success rates by up to 15% while reducing costs.
+                        </p>
+                    </div>
+                    
+                    <div class="preview-item">
+                        <div class="preview-icon">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+                        <h3 class="preview-title">Advanced Fraud Prevention</h3>
+                        <p class="preview-description">
+                            Next-generation fraud detection using behavioral analysis and network intelligence to stop threats before they happen.
+                        </p>
+                    </div>
+                    
+                    <div class="preview-item">
+                        <div class="preview-icon">
+                            <i data-lucide="zap"></i>
+                        </div>
+                        <h3 class="preview-title">Instant Settlements</h3>
+                        <p class="preview-description">
+                            Real-time settlement capabilities powered by blockchain technology, enabling instant fund transfers across borders.
+                        </p>
+                    </div>
+                    
+                    <div class="preview-item">
+                        <div class="preview-icon">
+                            <i data-lucide="bar-chart-3"></i>
+                        </div>
+                        <h3 class="preview-title">Predictive Analytics</h3>
+                        <p class="preview-description">
+                            Advanced analytics dashboard with predictive insights to help you optimize conversion rates and prevent revenue loss.
+                        </p>
+                    </div>
+                    
+                    <div class="preview-item">
+                        <div class="preview-icon">
+                            <i data-lucide="globe"></i>
+                        </div>
+                        <h3 class="preview-title">Universal Wallet</h3>
+                        <p class="preview-description">
+                            A single wallet solution supporting traditional currencies, cryptocurrencies, and central bank digital currencies (CBDCs).
+                        </p>
+                    </div>
+                    
+                    <div class="preview-item">
+                        <div class="preview-icon">
+                            <i data-lucide="code-2"></i>
+                        </div>
+                        <h3 class="preview-title">No-Code Integration</h3>
+                        <p class="preview-description">
+                            Visual workflow builder that lets non-technical teams configure complex payment flows without writing a single line of code.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notify Me Section -->
+        <section class="notify-section">
+            <div class="notify-container">
+                <h2 class="section-title">Be the First to Know</h2>
+                <p class="section-subtitle">
+                    Get exclusive early access and be notified the moment these features go live
+                </p>
+                
+                <form class="notify-form" id="notify-form">
+                    <input type="email" class="notify-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="notify-btn">
+                        <i data-lucide="bell" style="width: 18px; height: 18px; margin-right: 8px; display: inline-block; vertical-align: middle;"></i>
+                        Notify Me
+                    </button>
+                </form>
+                
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.875rem;">
+                    Join 10,000+ payment professionals already on our early access list
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/globapay-footer-logo.svg" alt="Globapay" class="footer-logo-img">
+                    </div>
+                    <p class="footer-description">Global payment infrastructure for the next generation of platforms</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#">Globapay Core</a></li>
+                        <li><a href="#">Globagift</a></li>
+                        <li><a href="#">Globainvoice</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Globapay. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Handle notify form submission
+        document.getElementById('notify-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            const button = this.querySelector('.notify-btn');
+            
+            // Simple form handling (in production, this would connect to your backend)
+            button.innerHTML = '<i data-lucide="check" style="width: 18px; height: 18px; margin-right: 8px; display: inline-block; vertical-align: middle;"></i>Thank You!';
+            button.style.background = 'var(--success-green)';
+            
+            // Reset after 3 seconds
+            setTimeout(() => {
+                button.innerHTML = '<i data-lucide="bell" style="width: 18px; height: 18px; margin-right: 8px; display: inline-block; vertical-align: middle;"></i>Notify Me';
+                button.style.background = 'var(--primary-green)';
+                this.reset();
+                lucide.createIcons();
+            }, 3000);
+            
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

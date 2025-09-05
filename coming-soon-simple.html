@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Globapay</title>
+    <meta name="description" content="Globapay - Global Payment Infrastructure Platform">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #7ED321;
+            --secondary-teal: #4ECDC4;
+            --text-primary: #1a202c;
+            --text-secondary: #718096;
+            --white: #FFFFFF;
+            --spacing-md: 1rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            background: 
+                linear-gradient(135deg, #0a4d3a 0%, #0d5940 15%),
+                linear-gradient(45deg, #7ED321 0%, #a8e063 30%, #7ED321 60%, #5bb31a 100%);
+            background-size: 100% 100%, 120% 120%;
+            background-position: 0% 0%, -10% -10%;
+            animation: gradientShift 8s ease-in-out infinite;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 1px, transparent 1px),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 1px, transparent 1px),
+                radial-gradient(circle at 40% 60%, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 100px 100px, 80px 80px, 120px 120px;
+            animation: floatPattern 20s linear infinite;
+            z-index: 1;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(126, 211, 33, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(168, 224, 99, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(126, 211, 33, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 3rem;
+            filter: brightness(0) invert(1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .globe-container {
+            position: relative;
+            width: min(400px, 80vw);
+            height: min(400px, 80vw);
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .globe-canvas {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .globe-canvas canvas {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .coming-soon-text {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.125rem;
+            font-weight: 400;
+            animation: fadeInUp 1s ease-out 0.9s both;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) scale(1);
+            }
+            50% { 
+                transform: translateY(-15px) scale(1.02);
+            }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 0%, -10% -10%;
+            }
+            50% {
+                background-position: 100% 100%, 110% 110%;
+            }
+        }
+
+        @keyframes floatPattern {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(30px, -30px) rotate(120deg);
+            }
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                background-position: -200% center;
+            }
+            50% {
+                background-position: 200% center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                width: 150px;
+                margin-bottom: 2rem;
+            }
+            
+            .globe-container {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 2rem;
+            }
+            
+            .coming-soon-text {
+                font-size: 1.875rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .logo {
+                width: 120px;
+            }
+            
+            .globe-container {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .coming-soon-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="images/globapay-logo.svg" alt="Globapay" class="logo">
+        
+        <div class="globe-container">
+            <div id="globe-canvas" class="globe-canvas"></div>
+        </div>
+        
+        <h1 class="coming-soon-text">Coming Soon</h1>
+        <p class="tagline">
+            The next generation of global payment infrastructure is being built. 
+            Something revolutionary is on the horizon.
+        </p>
+    </div>
+    <script src="scripts/globe.js"></script>
+</body>
+</html>
