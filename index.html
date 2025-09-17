@@ -162,152 +162,19 @@
             </div>
         </section>
 
-        <!-- Interactive Demo Section -->
-        <section class="demo-section">
-            <div class="demo-container">
+        <!-- Platform Screenshot Section -->
+        <section class="platform-showcase">
+            <div class="platform-container">
                 <h2 class="section-title">See Globapay in Action</h2>
-                <p class="section-subtitle">Experience how our payment infrastructure powers different platform scenarios</p>
+                <p class="section-subtitle">Experience our powerful payment infrastructure platform</p>
                 
-                <div class="demo-tabs">
-                    <button class="demo-tab active" data-scenario="insurance">Insurance Platform</button>
-                    <button class="demo-tab" data-scenario="recreation">Recreation Platform</button>
-                </div>
-
-                <!-- Insurance Demo -->
-                <div class="demo-scenario active" id="insurance-demo">
-                    <div class="demo-content">
-                        <div class="demo-dashboard">
-                            <div class="dashboard-header">
-                                <h3>Acme Insurance Dashboard</h3>
-                                <div class="dashboard-actions">
-                                    <button class="btn btn-primary demo-trigger" id="issue-payment-btn">Issue Policy Payment</button>
-                                </div>
-                            </div>
-                            
-                            <div class="payment-form" id="payment-form" style="display: none;">
-                                <div class="form-group">
-                                    <label>Customer Name</label>
-                                    <input type="text" value="John Smith" class="form-input">
-                                </div>
-                                <div class="form-group">
-                                    <label>Policy Amount</label>
-                                    <input type="text" value="$2,500" class="form-input">
-                                </div>
-                                <div class="form-group">
-                                    <label>Policy Type</label>
-                                    <select class="form-input">
-                                        <option>Auto Insurance</option>
-                                        <option>Home Insurance</option>
-                                        <option>Life Insurance</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Delivery Method</label>
-                                    <div class="delivery-options">
-                                        <button class="delivery-btn active" data-method="email"><i data-lucide="mail"></i> Email</button>
-                                        <button class="delivery-btn" data-method="whatsapp"><i data-lucide="message-circle"></i> WhatsApp</button>
-                                        <button class="delivery-btn" data-method="sms"><i data-lucide="smartphone"></i> SMS</button>
-                                    </div>
-                                </div>
-                                <button class="btn btn-success" id="send-payment-link">Send Payment Link</button>
-                            </div>
-
-                            <div class="payment-flow" id="payment-flow" style="display: none;">
-                                <div class="flow-steps">
-                                    <div class="flow-step active">
-                                        <div class="step-icon"><i data-lucide="mail"></i></div>
-                                        <div class="step-text">Payment link sent via email</div>
-                                    </div>
-                                    <div class="flow-step">
-                                        <div class="step-icon"><i data-lucide="mouse-pointer-click"></i></div>
-                                        <div class="step-text">Customer clicks secure payment page</div>
-                                    </div>
-                                    <div class="flow-step">
-                                        <div class="step-icon"><i data-lucide="shield-check"></i></div>
-                                        <div class="step-text">Smart routing & compliance checks</div>
-                                    </div>
-                                    <div class="flow-step">
-                                        <div class="step-icon"><i data-lucide="check-circle"></i></div>
-                                        <div class="step-text">Payment processed & settled</div>
-                                    </div>
-                                </div>
-                                <button class="btn btn-primary" id="reset-insurance-demo">Start Over</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Recreation Demo -->
-                <div class="demo-scenario" id="recreation-demo">
-                    <div class="demo-content">
-                        <div class="demo-dashboard">
-                            <div class="dashboard-header">
-                                <h3>Premier Tennis Club Dashboard</h3>
-                            </div>
-                            
-                            <div class="booking-form">
-                                <h4>Book Court & Pay</h4>
-                                <div class="form-group">
-                                    <label>Court Selection</label>
-                                    <select class="form-input">
-                                        <option>Court 1 - Clay</option>
-                                        <option>Court 2 - Hard</option>
-                                        <option>Court 3 - Grass</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Time Slot</label>
-                                    <select class="form-input">
-                                        <option>2:00 PM - 3:00 PM</option>
-                                        <option>3:00 PM - 4:00 PM</option>
-                                        <option>4:00 PM - 5:00 PM</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Amount: $75</label>
-                                </div>
-                                
-                                <div class="payment-methods">
-                                    <h5>Payment Method</h5>
-                                    <div class="payment-options">
-                                        <button class="payment-option active" data-method="card">
-                                            <i data-lucide="credit-card"></i> Credit Card
-                                        </button>
-                                        <button class="payment-option" data-method="wallet">
-                                            <i data-lucide="wallet"></i> Digital Wallet
-                                        </button>
-                                        <button class="payment-option" data-method="local">
-                                            <i data-lucide="banknote"></i> Local Payment
-                                        </button>
-                                    </div>
-                                </div>
-                                
-                                <button class="btn btn-success" id="process-booking">Process Payment</button>
-                            </div>
-
-                            <div class="routing-visualization" id="routing-viz" style="display: none;">
-                                <h4>Real-time Payment Processing</h4>
-                                <div class="routing-steps">
-                                    <div class="routing-step">
-                                        <div class="step-icon"><i data-lucide="cpu"></i></div>
-                                        <div class="step-text">Optimal processor selected</div>
-                                    </div>
-                                    <div class="routing-step">
-                                        <div class="step-icon"><i data-lucide="scan-line"></i></div>
-                                        <div class="step-text">Fraud & compliance checks</div>
-                                    </div>
-                                    <div class="routing-step">
-                                        <div class="step-icon"><i data-lucide="network"></i></div>
-                                        <div class="step-text">Settlement option: Traditional/Web3</div>
-                                    </div>
-                                    <div class="routing-step">
-                                        <div class="step-icon"><i data-lucide="calendar-check"></i></div>
-                                        <div class="step-text">Booking confirmed</div>
-                                    </div>
-                                </div>
-                                <button class="btn btn-primary" id="reset-recreation-demo">Book Another Court</button>
-                            </div>
-                        </div>
+                <div class="platform-screenshot">
+                    <img src="images/screenshots/Globapay Platform screenshot.png" alt="Globapay Platform Dashboard" class="platform-image">
+                    <div class="platform-overlay">
+                        <a href="contact.html" class="btn btn-primary btn-large platform-cta">
+                            <i data-lucide="play-circle"></i>
+                            Request Live Demo
+                        </a>
                     </div>
                 </div>
             </div>
