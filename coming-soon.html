@@ -149,6 +149,179 @@
             line-height: 1.6;
         }
 
+        .careers-section {
+            padding: 4rem 0;
+            background: var(--background-light);
+        }
+
+        .careers-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .role-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .role-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        }
+
+        .role-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .role-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .role-icon i {
+            width: 30px;
+            height: 30px;
+            color: white;
+        }
+
+        .role-info {
+            flex: 1;
+        }
+
+        .role-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .role-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .role-location,
+        .role-equity {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .role-location i,
+        .role-equity i {
+            width: 16px;
+            height: 16px;
+        }
+
+        .role-equity {
+            color: var(--primary-green);
+            font-weight: 500;
+        }
+
+        .role-description {
+            margin-bottom: 1.5rem;
+        }
+
+        .role-description p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .role-highlights {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .highlight-item i {
+            width: 20px;
+            height: 20px;
+            color: var(--primary-green);
+            flex-shrink: 0;
+        }
+
+        .role-requirements {
+            margin-bottom: 2rem;
+        }
+
+        .role-requirements h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .role-requirements ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .role-requirements li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .role-requirements li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+
+        .role-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .role-apply-btn {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .btn.btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn.btn-secondary:hover {
+            background: var(--text-primary);
+            color: white;
+            border-color: var(--text-primary);
+        }
+
         .notify-section {
             padding: 4rem 0;
             background: white;
@@ -202,6 +375,29 @@
                 font-size: 2.5rem;
             }
             
+            .role-card {
+                padding: 1.5rem;
+            }
+            
+            .role-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .role-meta {
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .role-actions {
+                flex-direction: column;
+            }
+            
+            .role-actions .btn {
+                width: 100%;
+            }
+            
             .notify-form {
                 flex-direction: column;
             }
@@ -239,7 +435,6 @@
                     <a href="about.html" class="nav-link">About</a>
                     <a href="blog.html" class="nav-link">Blog</a>
                     <a href="contact.html" class="nav-link">Contact</a>
-                    <a href="contact.html" class="btn btn-primary">Request Demo</a>
                 </div>
                 <div class="nav-toggle" id="nav-toggle">
                     <span></span>
@@ -334,6 +529,78 @@
                         <p class="preview-description">
                             Visual workflow builder that lets non-technical teams configure complex payment flows without writing a single line of code.
                         </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Open Roles Section -->
+        <section class="careers-section">
+            <div class="careers-container">
+                <h2 class="section-title">Join Our Mission</h2>
+                <p class="section-subtitle">
+                    Help us build the future of global payment infrastructure
+                </p>
+                
+                <div class="role-card">
+                    <div class="role-header">
+                        <div class="role-icon">
+                            <i data-lucide="code-2"></i>
+                        </div>
+                        <div class="role-info">
+                            <h3 class="role-title">Lead Software Engineer</h3>
+                            <div class="role-meta">
+                                <span class="role-location">
+                                    <i data-lucide="map-pin"></i>
+                                    Dublin, Ireland (Remote)
+                                </span>
+                                <span class="role-equity">
+                                    <i data-lucide="trending-up"></i>
+                                    2-4% Equity
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="role-description">
+                        <p>We're looking for a passionate engineer to help design and build B2B and B2C payment platforms that will power global commerce. This is a unique opportunity to have co-founder level influence on product, architecture, and culture.</p>
+                    </div>
+                    
+                    <div class="role-highlights">
+                        <div class="highlight-item">
+                            <i data-lucide="zap"></i>
+                            <span>Build APIs, merchant dashboards, and developer tools</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i data-lucide="globe"></i>
+                            <span>Create integrations for cross-border payments</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i data-lucide="shield"></i>
+                            <span>Design secure settlement and reconciliation systems</span>
+                        </div>
+                    </div>
+                    
+                    <div class="role-requirements">
+                        <h4>What we're looking for:</h4>
+                        <ul>
+                            <li>5+ years backend/software engineering experience</li>
+                            <li>Expertise in Node.js/TypeScript or Python</li>
+                            <li>Cloud infrastructure (GCP/AWS) experience</li>
+                            <li>Strong API design skills (REST, GraphQL, webhooks)</li>
+                            <li>Passion for fintech and global commerce</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="role-actions">
+                        <a href="https://www.linkedin.com/jobs/view/4301787285/" target="_blank" class="btn btn-primary role-apply-btn">
+                            <i data-lucide="external-link"></i>
+                            Apply on LinkedIn
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary">
+                            <i data-lucide="message-circle"></i>
+                            Get in Touch
+                        </a>
                     </div>
                 </div>
             </div>

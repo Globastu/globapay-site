@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" class="font-inter">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globapay Platform Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- React and Recharts for interactive charts -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/recharts@2.8.0/umd/Recharts.js"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: 'hsl(173, 100%, 36%)',
+                            foreground: 'hsl(210, 40%, 98%)'
+                        },
+                        secondary: {
+                            DEFAULT: 'hsl(210, 40%, 96%)',
+                            foreground: 'hsl(222.2, 84%, 4.9%)'
+                        },
+                        muted: {
+                            DEFAULT: 'hsl(210, 40%, 96%)',
+                            foreground: 'hsl(215.4, 16.3%, 46.9%)'
+                        },
+                        accent: {
+                            DEFAULT: 'hsl(158, 64%, 52%)',
+                            foreground: 'hsl(0, 0%, 100%)'
+                        },
+                        destructive: {
+                            DEFAULT: 'hsl(0, 84.2%, 60.2%)',
+                            foreground: 'hsl(210, 40%, 98%)'
+                        },
+                        border: 'hsl(214.3, 31.8%, 91.4%)',
+                        input: 'hsl(214.3, 31.8%, 91.4%)',
+                        ring: 'hsl(173, 58%, 39%)',
+                        success: 'hsl(142, 71%, 45%)',
+                        warning: 'hsl(38, 92%, 50%)',
+                        error: 'hsl(0, 84%, 60%)',
+                        info: 'hsl(221, 83%, 53%)'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif'],
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    borderRadius: {
+                        DEFAULT: '1rem'
+                    },
+                    boxShadow: {
+                        'card': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .font-inter { font-family: 'Inter', system-ui, sans-serif; }
+        .sidebar-collapsed { width: 4rem; }
+        .sidebar-expanded { width: 16rem; }
+        .main-content-collapsed { margin-left: 4rem; }
+        .main-content-expanded { margin-left: 16rem; }
+        
+        /* Custom scrollbar styles */
+        .sidebar-scroll::-webkit-scrollbar { width: 8px; }
+        .sidebar-scroll::-webkit-scrollbar-track { background: transparent; }
+        .sidebar-scroll::-webkit-scrollbar-thumb { background: hsl(214.3, 31.8%, 91.4%); border-radius: 9999px; }
+        .sidebar-scroll::-webkit-scrollbar-thumb:hover { background: hsl(215.4, 16.3%, 46.9%); }
+        
+        /* Dark mode scrollbar */
+        .dark .sidebar-scroll::-webkit-scrollbar-thumb { background: hsl(217.2, 32.6%, 17.5%); }
+        .dark .sidebar-scroll::-webkit-scrollbar-thumb:hover { background: hsl(215, 20.2%, 65.1%); }
+        
+        /* Button styles */
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.5rem 1rem;
+          font-size: 0.875rem;
+          font-weight: 500;
+          border-radius: 0.5rem;
+          transition: all 0.2s;
+          cursor: pointer;
+          border: none;
+        }
+        .btn-primary {
+          background-color: hsl(173, 100%, 36%);
+          color: white;
+        }
+        .btn-primary:hover {
+          background-color: hsl(173, 100%, 32%);
+        }
+        .btn-secondary {
+          background-color: white;
+          color: hsl(222.2, 84%, 4.9%);
+          border: 1px solid hsl(214.3, 31.8%, 91.4%);
+        }
+        .btn-secondary:hover {
+          background-color: hsl(210, 40%, 96%);
+        }
+        .dark .btn-secondary {
+          background-color: hsl(222.2, 84%, 4.9%);
+          color: hsl(210, 40%, 98%);
+          border-color: hsl(217.2, 32.6%, 17.5%);
+        }
+        .dark .btn-secondary:hover {
+          background-color: hsl(217.2, 32.6%, 17.5%);
+        }
+    </style>
+</head>
+<body class="min-h-screen font-inter bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-50 antialiased">
+    <!-- Demo Container -->
+    <div id="demo-app" class="min-h-screen bg-gray-50 dark:bg-gray-950">
+        <!-- Loading State -->
+        <div id="loading" class="flex items-center justify-center min-h-screen">
+            <div class="flex flex-col items-center space-y-4">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+                <p class="text-muted-foreground">Loading demo...</p>
+            </div>
+        </div>
+
+        <!-- Main Application (Hidden initially) -->
+        <div id="app" class="hidden">
+            <div class="flex h-screen">
+                <!-- Desktop Sidebar -->
+                <div id="sidebar-container" class="hidden lg:flex lg:flex-shrink-0 transition-all duration-300 sidebar-expanded">
+                    <div id="sidebar" class="flex h-full flex-col bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 relative w-full">
+                        <!-- Sidebar content will be injected here -->
+                    </div>
+                </div>
+
+                <!-- Mobile Sidebar Overlay -->
+                <div id="mobile-overlay" class="hidden fixed inset-0 z-40 bg-black/50 lg:hidden"></div>
+                <div id="mobile-sidebar" class="hidden fixed inset-y-0 left-0 z-50 w-64 lg:hidden">
+                    <div class="flex h-full flex-col bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 relative w-full">
+                        <!-- Mobile sidebar content will be injected here -->
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div id="main-content" class="flex flex-1 flex-col overflow-hidden main-content-expanded">
+                    <!-- Topbar -->
+                    <header id="topbar" class="sticky top-0 z-30 flex h-16 items-center bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800 px-6">
+                        <!-- Topbar content will be injected here -->
+                    </header>
+                    
+                    <!-- Page Content -->
+                    <main class="flex-1 overflow-auto bg-gray-50 dark:bg-gray-950">
+                        <div class="container mx-auto p-6">
+                            <div id="page-content">
+                                <!-- Dynamic content will be injected here -->
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/data.js"></script>
+    <script src="scripts/icons.js"></script>
+    <script src="scripts/charts.js"></script>
+    <script src="scripts/components.js"></script>
+    <script src="scripts/router.js"></script>
+    <script src="components/sidebar.js"></script>
+    <script src="components/topbar.js"></script>
+    <script src="components/dashboard.js"></script>
+    <script src="components/transactions.js"></script>
+    <script src="components/merchants.js"></script>
+    <script src="components/reports.js"></script>
+    <script src="components/settings.js"></script>
+    <script src="scripts/main.js"></script>
+
+    <script>
+        // Initialize demo on load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDemo();
+        });
+    </script>
+</body>
+</html>

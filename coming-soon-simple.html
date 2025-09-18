@@ -125,6 +125,151 @@
             animation: fadeInUp 1s ease-out 0.9s both;
             max-width: 500px;
             line-height: 1.6;
+            margin-bottom: 3rem;
+        }
+
+        .careers-section {
+            max-width: 600px;
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        .careers-title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .role-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+        }
+
+        .role-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+        }
+
+        .role-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .role-icon {
+            width: 50px;
+            height: 50px;
+            background: #7ED321;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .role-icon i {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        .role-info {
+            flex: 1;
+        }
+
+        .role-title {
+            color: #1a202c;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .role-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .role-location,
+        .role-equity {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #718096;
+            font-size: 0.875rem;
+        }
+
+        .role-location i,
+        .role-equity i {
+            width: 14px;
+            height: 14px;
+        }
+
+        .role-equity {
+            color: #7ED321;
+            font-weight: 500;
+        }
+
+        .role-description {
+            margin-bottom: 1.5rem;
+        }
+
+        .role-description p {
+            color: #718096;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .role-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn i {
+            width: 16px;
+            height: 16px;
+        }
+
+        .btn-primary {
+            background: #7ED321;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #6BB61A;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.5);
         }
 
         @keyframes fadeInUp {
@@ -198,6 +343,51 @@
             
             .tagline {
                 font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .careers-section {
+                max-width: 90%;
+            }
+            
+            .careers-title {
+                font-size: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .role-card {
+                padding: 1.5rem;
+            }
+            
+            .role-header {
+                gap: 0.75rem;
+            }
+            
+            .role-icon {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .role-icon i {
+                width: 20px;
+                height: 20px;
+            }
+            
+            .role-title {
+                font-size: 1.125rem;
+            }
+            
+            .role-meta {
+                gap: 0.75rem;
+            }
+            
+            .role-actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
             }
         }
 
@@ -234,7 +424,49 @@
             The next generation of global payment infrastructure is being built. 
             Something revolutionary is on the horizon.
         </p>
+        
+        <!-- Careers Section -->
+        <div class="careers-section">
+            <h2 class="careers-title">Join Our Mission</h2>
+            <div class="role-card">
+                <div class="role-header">
+                    <div class="role-icon">
+                        <i data-lucide="code-2"></i>
+                    </div>
+                    <div class="role-info">
+                        <h3 class="role-title">Lead Software Engineer</h3>
+                        <div class="role-meta">
+                            <span class="role-location">
+                                <i data-lucide="map-pin"></i>
+                                Dublin, Ireland (Remote)
+                            </span>
+                            <span class="role-equity">
+                                <i data-lucide="trending-up"></i>
+                                2-4% Equity
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="role-description">
+                    <p>Help us build B2B and B2C payment platforms that will power global commerce. Co-founder level influence on product, architecture, and culture.</p>
+                </div>
+                
+                <div class="role-actions">
+                    <a href="https://www.linkedin.com/jobs/view/4301787285/" target="_blank" class="btn btn-primary">
+                        <i data-lucide="external-link"></i>
+                        Apply on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
+    
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script src="scripts/globe.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
