@@ -370,9 +370,32 @@
             background: var(--primary-green-hover);
         }
 
+        /* Mobile scrolling fixes */
+        html {
+            height: 100%;
+            overflow-x: hidden;
+        }
+        
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            position: relative;
+        }
+        
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
         @media (max-width: 768px) {
             .coming-soon-title {
                 font-size: 2.5rem;
+            }
+            
+            .coming-soon-hero {
+                min-height: 100vh;
+                min-height: 100dvh;
             }
             
             .role-card {
