@@ -12,7 +12,7 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
         .coming-soon-hero {
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -20,6 +20,18 @@
             background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-teal) 100%);
             color: white;
             position: relative;
+            overflow: hidden;
+        }
+
+        .coming-soon-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(255,255,255,0.05) 0%, transparent 50%);
         }
 
         .coming-soon-content {
@@ -40,6 +52,12 @@
             justify-content: center;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         .coming-soon-icon i {
@@ -363,7 +381,6 @@
             overflow-x: hidden;
             -webkit-overflow-scrolling: touch;
             position: relative;
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-teal) 100%);
         }
         
         main {
@@ -374,6 +391,11 @@
         @media (max-width: 768px) {
             .coming-soon-title {
                 font-size: 2.5rem;
+            }
+            
+            .coming-soon-hero {
+                min-height: 100vh;
+                min-height: 100dvh;
             }
             
             .role-card {
